@@ -265,15 +265,23 @@
     @media (max-width: 860px) {
       .sobre { grid-template-columns: 1fr; }
       .sobre-foto-wrap { position: static; max-width: 280px; }
+      .sobre-copy p { max-width: none; }
       .case-feature { grid-template-columns: 3rem 1fr; }
       .case-detail-block { display: none; }
       .case-body-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contato-section { grid-template-columns: 1fr; gap: 3rem; }
       .penso-grid { grid-template-columns: 1fr; gap: 2rem; }
       .nav-links { display: none; }
+      .opening-number { display: none; }
       .case-gallery-editorial { grid-template-columns: 1fr 1fr; }
       .case-gallery-editorial .img-wrap:first-child { grid-column: span 2; }
       .cases-head { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .opening-tese { font-size: 2.4rem; }
+      .case-gallery-editorial { grid-template-columns: 1fr; }
+      .case-gallery-editorial .img-wrap:first-child { grid-column: span 1; }
+      .projetos-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
