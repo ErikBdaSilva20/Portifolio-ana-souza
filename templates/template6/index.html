@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Julia Souza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cacau:   #3C1C0D;
+      --cacau2:  #542B16;
+      --cacau3:  #6B3820;
+      --paper:   #F3ECDF;
+      --areia:   #E6DDD0;
+      --caramel: #B97854;
+      --nude:    #D9B8AC;
+      --text:    #1C1714;
+      --mid:     #8B7060;
+      --faint:   #C4B0A0;
+      --white:   #FAF6F0;
+      --serif-stack: Georgia, 'Times New Roman', serif;
+      --sans:    'Space Grotesk', system-ui, sans-serif;
+      --body:    'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--body); background: var(--paper); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cacau); border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem, 6vw, 5rem); height: 62px;
+    }
+    .nav-brand { font-family: var(--sans); font-size: .95rem; font-weight: 700; letter-spacing: .04em; text-decoration: none; color: var(--paper); }
+    .nav-brand em { color: var(--caramel); font-style: normal; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .78rem; font-weight: 500; color: rgba(243,236,223,.5); text-decoration: none; letter-spacing: .06em; text-transform: uppercase; transition: color .15s; }
+    .nav-links a:hover { color: var(--paper); }
+    .nav-cta {
+      background: var(--caramel); color: var(--cacau) !important;
+      padding: .4rem 1.1rem; font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--nude) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--cacau);
+      padding: clamp(4rem, 9vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+    .hero-copy { color: var(--paper); }
+    .hero-tag {
+      font-family: var(--sans); font-size: .68rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--caramel); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--caramel); display: block; }
+    .hero h1 {
+      font-family: var(--sans); font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+      font-weight: 700; line-height: 1.0; letter-spacing: -.025em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--caramel); font-style: normal; display: block; }
+    .hero-desc { font-size: 1rem; color: rgba(243,236,223,.65); line-height: 1.75; max-width: 44ch; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-block; font-family: var(--sans); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; padding: .75rem 1.75rem; transition: all .15s; }
+    .btn-light { background: var(--paper); color: var(--cacau); }
+    .btn-light:hover { background: var(--caramel); color: var(--cacau); }
+    .btn-outline { border: 1.5px solid rgba(243,236,223,.25); color: var(--paper); }
+    .btn-outline:hover { border-color: var(--paper); background: rgba(243,236,223,.08); }
+    .btn-dark { background: var(--cacau); color: var(--paper); }
+    .btn-dark:hover { background: var(--cacau2); }
+    .btn-caramel { background: var(--caramel); color: var(--cacau); }
+    .btn-caramel:hover { background: var(--nude); }
+
+    .hero-visual { position: relative; }
+    .hero-photo {
+      width: 100%; aspect-ratio: 3/4; background: var(--cacau2);
+      overflow: hidden; border: 1px solid rgba(255,255,255,.08);
+      position: relative;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo-tag {
+      position: absolute; bottom: 1.25rem; left: 1.25rem;
+      background: var(--caramel); color: var(--cacau);
+      font-family: var(--sans); font-size: .65rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; padding: .4rem .85rem;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: rgba(255,255,255,.06); margin-top: 1px;
+    }
+    .stat { background: var(--cacau2); padding: 1rem 1.25rem; }
+    .stat-n { font-family: var(--sans); font-size: 1.75rem; font-weight: 700; color: var(--caramel); line-height: 1; }
+    .stat-l { font-size: .65rem; color: rgba(243,236,223,.45); text-transform: uppercase; letter-spacing: .08em; margin-top: .3rem; }
+
+    /* ── PILARES ── */
+    .pilares {
+      background: var(--cacau2);
+      padding: 2rem clamp(1.5rem, 6vw, 5rem);
+      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+    }
+    .pilar-label { font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,236,223,.3); white-space: nowrap; }
+    .pilar-divider { width: 1px; height: 1.5rem; background: rgba(243,236,223,.1); flex-shrink: 0; }
+    .pilar-item { font-family: var(--sans); font-size: .8rem; font-weight: 600; color: rgba(243,236,223,.6); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+    .pilar-item.hl { color: var(--caramel); }
+
+    /* ── SECTION SHELL ── */
+    .shell { max-width: 1280px; margin: 0 auto; }
+    .section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem); }
+    .eyebrow { font-family: var(--sans); font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--caramel); margin-bottom: .75rem; display: flex; align-items: center; gap: .6rem; }
+    .eyebrow::before { content: ''; width: 16px; height: 1px; background: var(--caramel); display: block; }
+    .section-title { font-family: var(--sans); font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+    .section-title em { color: var(--caramel); font-style: normal; }
+
+    /* ── CASES ── */
+    .cases-head { display: grid; grid-template-columns: 1fr auto; align-items: end; margin-bottom: 3rem; gap: 2rem; }
+    .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .case-card {
+      background: var(--cacau); color: var(--paper);
+      padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between;
+      text-decoration: none; min-height: 340px; transition: background .2s;
+      position: relative; overflow: hidden;
+    }
+    .case-card.light { background: var(--areia); color: var(--text); }
+    .case-card:hover { background: var(--cacau2); }
+    .case-card.light:hover { background: var(--nude); }
+    .case-card-top { }
+    .case-card-num { font-family: var(--sans); font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--caramel); margin-bottom: 2.5rem; }
+    .case-card.light .case-card-num { color: var(--cacau2); }
+    .case-card-name { font-family: var(--sans); font-size: clamp(1.3rem, 2.2vw, 1.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; margin-bottom: .75rem; }
+    .case-card-desc { font-size: .875rem; opacity: .65; line-height: 1.6; max-width: 36ch; }
+    .case-card-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 2.5rem; }
+    .case-card-tags { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .case-tag { font-size: .62rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: .25rem .65rem; border: 1px solid rgba(243,236,223,.2); color: rgba(243,236,223,.55); }
+    .case-card.light .case-tag { border-color: rgba(60,28,13,.15); color: var(--mid); }
+    .case-arrow { font-size: 1.5rem; opacity: .4; transition: opacity .15s, transform .15s; }
+    .case-card:hover .case-arrow { opacity: 1; transform: translate(3px,-3px); }
+    .case-card-wide { grid-column: span 2; min-height: 200px; flex-direction: row; align-items: center; justify-content: space-between; gap: 3rem; }
+    .case-card-wide .case-card-bottom { margin-top: 0; }
+
+    /* ── SOBRE ── */
+    .sobre-bg { background: var(--cacau); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
+    .sobre-photo { width: 100%; aspect-ratio: 3/4; background: var(--cacau2); overflow: hidden; border: 1px solid rgba(255,255,255,.06); }
+    .sobre-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sobre-copy { color: var(--paper); padding-top: .5rem; }
+    .sobre-copy .eyebrow { color: var(--caramel); }
+    .sobre-copy .section-title { color: var(--paper); margin-bottom: 1.75rem; }
+    .sobre-copy p { font-size: .975rem; color: rgba(243,236,223,.65); line-height: 1.85; margin-bottom: 1.25rem; max-width: 50ch; }
+    .sobre-copy strong { color: var(--paper); font-weight: 500; }
+    .competencias { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(243,236,223,.1); display: flex; flex-direction: column; gap: 0; }
+    .comp-row { display: flex; justify-content: space-between; align-items: center; padding: .9rem 0; border-bottom: 1px solid rgba(243,236,223,.08); }
+    .comp-name { font-family: var(--sans); font-size: .875rem; font-weight: 600; color: var(--paper); }
+    .comp-bar { width: 100px; height: 3px; background: rgba(243,236,223,.1); }
+    .comp-fill { height: 100%; background: var(--caramel); }
+    .sobre-publigirls {
+      margin-top: 2rem; padding: 1.5rem;
+      background: rgba(185,120,84,.12); border-left: 2px solid var(--caramel);
+    }
+    .publigirls-label { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--caramel); margin-bottom: .5rem; }
+    .publigirls-text { font-size: .875rem; color: rgba(243,236,223,.6); line-height: 1.7; }
+
+    /* ── CONTATO ── */
+    .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
+    .contato-copy .section-title { margin-bottom: 1rem; }
+    .contato-copy p { font-size: .975rem; color: var(--mid); line-height: 1.75; max-width: 40ch; }
+    .contato-links { display: flex; flex-direction: column; gap: 0; }
+    .contact-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 0; border-bottom: 1px solid var(--areia);
+      text-decoration: none; color: var(--text); transition: color .15s;
+    }
+    .contact-row:hover { color: var(--caramel); }
+    .contact-row-label { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); margin-bottom: .2rem; }
+    .contact-row-val { font-family: var(--sans); font-size: .9rem; font-weight: 500; }
+    .contact-arrow { font-size: .9rem; color: var(--faint); transition: all .15s; }
+    .contact-row:hover .contact-arrow { color: var(--caramel); transform: translate(3px,-3px); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--cacau); color: rgba(243,236,223,.35);
+      padding: 1.75rem clamp(1.5rem, 6vw, 5rem);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .72rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer a { color: rgba(243,236,223,.35); text-decoration: none; }
+    .footer a:hover { color: rgba(243,236,223,.7); }
+
+    /* ── CASE DETAIL ── */
+    .cd-hero { background: var(--cacau); padding: clamp(5rem,10vw,8rem) clamp(1.5rem,6vw,5rem) clamp(3rem,5vw,4rem); }
+    .cd-hero-inner { max-width: 1280px; margin: 0 auto; }
+    .cd-back { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(243,236,223,.3); text-decoration: none; display: inline-block; margin-bottom: 2.5rem; transition: color .15s; }
+    .cd-back:hover { color: var(--caramel); }
+    .cd-eyebrow { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--caramel); margin-bottom: 1.25rem; display: flex; align-items: center; gap: .6rem; }
+    .cd-eyebrow::before { content:''; width:16px; height:1px; background:var(--caramel); display:block; }
+    .cd-title { font-family: var(--sans); font-size: clamp(2.5rem,5.5vw,5rem); font-weight: 700; color: var(--paper); line-height: 1.0; letter-spacing: -.025em; margin-bottom: 1.25rem; }
+    .cd-desc { font-size: 1.05rem; color: rgba(243,236,223,.6); max-width: 52ch; line-height: 1.75; margin-bottom: 2rem; }
+    .cd-tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .cd-tag { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .75rem; border: 1px solid rgba(243,236,223,.15); color: rgba(243,236,223,.5); }
+
+    .cd-meta { background: var(--caramel); padding: 1.75rem clamp(1.5rem,6vw,5rem); }
+    .cd-meta-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
+    .cd-meta-item .m-label { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(60,28,13,.6); margin-bottom: .3rem; }
+    .cd-meta-item .m-val { font-family: var(--sans); font-size: .95rem; font-weight: 700; color: var(--cacau); }
+
+    .cd-featured { width: 100%; aspect-ratio: 16/7; overflow: hidden; background: var(--areia); }
+    .cd-featured img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .cd-body { padding: clamp(3rem,6vw,5rem) clamp(1.5rem,6vw,5rem); }
+    .cd-body-inner { max-width: 1280px; margin: 0 auto; }
+    .cd-cols { display: grid; grid-template-columns: 1.6fr 1fr; gap: 5rem; margin-bottom: 4rem; }
+    .cd-block { margin-bottom: 2.5rem; }
+    .cd-label { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--caramel); margin-bottom: .9rem; display: flex; align-items: center; gap: .5rem; }
+    .cd-label::before { content:''; width:12px; height:1px; background:var(--caramel); display:block; }
+    .cd-text { font-size: .95rem; color: var(--mid); line-height: 1.85; }
+    .cd-note { margin-top: 1rem; padding: .9rem 1.1rem; background: var(--areia); border-left: 2px solid var(--caramel); font-size: .82rem; color: var(--mid); }
+    .cd-bullets { list-style: none; padding: 0; }
+    .cd-bullets li { font-size: .9rem; color: var(--mid); padding: .65rem 0; border-bottom: 1px solid var(--areia); display: flex; gap: .75rem; align-items: baseline; }
+    .cd-bullets li::before { content: '→'; color: var(--caramel); font-size: .75rem; flex-shrink: 0; }
+
+    .cd-gallery-label { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--caramel); display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; }
+    .cd-gallery-label::before { content:''; width:12px; height:1px; background:var(--caramel); display:block; }
+    .cd-gallery { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 1rem; margin-bottom: 4rem; }
+    .cd-gallery .gal-item { overflow: hidden; background: var(--areia); }
+    .cd-gallery .gal-item:first-child { grid-row: span 2; aspect-ratio: unset; }
+    .cd-gallery .gal-item:not(:first-child) { aspect-ratio: 4/3; }
+    .cd-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gal-caption { font-size: .65rem; color: var(--faint); margin-top: .35rem; }
+
+    .cd-aprendizado { background: var(--cacau); padding: 2.5rem; margin-bottom: 3rem; }
+    .cd-aprendizado .cd-label { color: var(--caramel); }
+    .cd-aprendizado-text { font-size: 1rem; color: rgba(243,236,223,.65); line-height: 1.75; font-style: italic; }
+
+    .cd-ctas { display: flex; gap: 1rem; flex-wrap: wrap; padding-top: 3rem; border-top: 1px solid var(--areia); }
+
+    /* ── PROJETOS ── */
+    .proj-hero { background: var(--cacau); padding: clamp(6rem,11vw,9rem) clamp(1.5rem,6vw,5rem) 3rem; }
+    .proj-hero-inner { max-width: 1280px; margin: 0 auto; }
+    .proj-grid { max-width: 1280px; margin: 0 auto; padding: 3rem clamp(1.5rem,6vw,5rem) 6rem; display: flex; flex-direction: column; gap: 1px; }
+    .proj-card {
+      background: var(--white); border: 1px solid var(--areia);
+      display: grid; grid-template-columns: 200px 1fr 1fr; gap: 0;
+      text-decoration: none; color: var(--text); transition: border-color .15s;
+      overflow: hidden;
+    }
+    .proj-card:hover { border-color: var(--caramel); }
+    .proj-card:hover .proj-card-arrow { color: var(--caramel); transform: translate(3px,-3px); }
+    .proj-thumb { aspect-ratio: 4/3; overflow: hidden; background: var(--areia); flex-shrink: 0; }
+    .proj-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .proj-col { padding: 1.75rem 2rem; border-left: 1px solid var(--areia); display: flex; flex-direction: column; justify-content: space-between; }
+    .proj-col:first-of-type { border-left: none; }
+    .proj-card-n { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--caramel); margin-bottom: .6rem; }
+    .proj-card-name { font-family: var(--sans); font-size: 1.15rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: .5rem; }
+    .proj-card-desc { font-size: .84rem; color: var(--mid); line-height: 1.65; }
+    .proj-card-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: 1rem; }
+    .proj-card-tag { font-size: .6rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .55rem; border: 1px solid var(--areia); color: var(--faint); }
+    .proj-col-label { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--caramel); margin-bottom: .6rem; }
+    .proj-col-text { font-size: .84rem; color: var(--mid); line-height: 1.7; }
+    .proj-col-bullets { list-style: none; padding: 0; margin: 0; }
+    .proj-col-bullets li { font-size: .82rem; color: var(--mid); padding: .4rem 0; border-bottom: 1px solid var(--areia); display: flex; gap: .6rem; align-items: baseline; }
+    .proj-col-bullets li::before { content: '→'; color: var(--caramel); font-size: .7rem; flex-shrink: 0; }
+    .proj-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--areia); }
+    .proj-card-status { font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+    .proj-card-arrow { font-size: 1rem; color: var(--faint); transition: all .15s; }
+    @media (max-width: 860px) {
+      .proj-card { grid-template-columns: 1fr; }
+      .proj-thumb { aspect-ratio: 16/7; }
+      .proj-col { border-left: none; border-top: 1px solid var(--areia); }
+    }
+
+    /* ── BACK HOME ── */
+    .back-home {
+      position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 999;
+      background: var(--cacau); color: var(--paper);
+      font-family: var(--sans); font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; padding: .55rem 1rem;
+      border: 1px solid rgba(243,236,223,.15);
+      box-shadow: 0 2px 12px rgba(26,18,10,.3); opacity: .8; transition: opacity .15s;
+    }
+    .back-home:hover { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { order: -1; max-width: 320px; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .case-card-wide { grid-column: span 1; flex-direction: column; }
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-photo { max-width: 280px; }
+      .contato-grid { grid-template-columns: 1fr; }
+      .cd-cols { grid-template-columns: 1fr; gap: 2rem; }
+      .cd-meta-inner { grid-template-columns: repeat(2,1fr); }
+      .cd-gallery { grid-template-columns: 1fr 1fr; }
+      .cd-gallery .gal-item:first-child { grid-row: span 1; }
+      .nav-links { display: none; }
+      .pilares { gap: 1.5rem; }
+      .cases-head { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-brand" href="#home">ana<em>julia</em>®</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#contato" class="nav-cta">Conversar ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ HOME ══════════ -->
+<div data-screen="home">
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <div class="hero-tag">Publicidade · Marketing · São Paulo, SP</div>
+      <h1>Marcas que<br><em>conectam.</em></h1>
+      <p class="hero-desc">Sou Ana Julia Souza — estudo e pratico comunicação para construir vínculos reais entre marcas e pessoas. Estratégia, conteúdo e escuta ativa.</p>
+      <div class="hero-btns">
+        <a class="btn btn-light" href="#cases">Ver cases ↗</a>
+        <a class="btn btn-outline" href="#sobre">Sobre mim</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo">
+        <img src="../../OIP.webp" alt="Ana Julia Souza">
+        <span class="hero-photo-tag">SP · 2026</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-n">B2C</div><div class="stat-l">Foco em consumidor</div></div>
+        <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Cases documentados</div></div>
+        <div class="stat"><div class="stat-n">Pub.</div><div class="stat-l">Publicidade &amp; Prop.</div></div>
+        <div class="stat"><div class="stat-n">4°</div><div class="stat-l">Semestre</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilares -->
+  <div class="pilares">
+    <span class="pilar-label">Áreas de atuação</span>
+    <span class="pilar-divider"></span>
+    <span class="pilar-item hl">Estratégia de conteúdo</span>
+    <span class="pilar-divider"></span>
+    <span class="pilar-item">Branding</span>
+    <span class="pilar-divider"></span>
+    <span class="pilar-item">Marketing B2C</span>
+    <span class="pilar-divider"></span>
+    <span class="pilar-item">Atendimento</span>
+    <span class="pilar-divider"></span>
+    <span class="pilar-item">Comunidade</span>
+    <span class="pilar-divider"></span>
+    <span class="pilar-item">Fotografia publicitária</span>
+  </div>
+
+  <!-- Cases -->
+  <div class="section" id="cases">
+    <div class="shell">
+      <div class="cases-head">
+        <div>
+          <div class="eyebrow">Cases selecionados</div>
+          <h2 class="section-title">Projetos com <em>propósito.</em></h2>
+        </div>
+        <a class="btn btn-dark" href="#projetos" style="font-size:.72rem;align-self:flex-end">Arquivo completo ↗</a>
+      </div>
+      <div class="cases-grid">
+        <a class="case-card" href="#case:publigirls">
+          <div class="case-card-top">
+            <div class="case-card-num">01 · Comunidade · 2024</div>
+            <div class="case-card-name">Publigirls</div>
+            <div class="case-card-desc">Marca e estratégia de comunidade para conectar mulheres da comunicação.</div>
+          </div>
+          <div class="case-card-bottom">
+            <div class="case-card-tags"><span class="case-tag">Branding</span><span class="case-tag">Comunidade</span><span class="case-tag">Conteúdo</span></div>
+            <span class="case-arrow">↗</span>
+          </div>
+        </a>
+        <a class="case-card light" href="#case:nestle">
+          <div class="case-card-top">
+            <div class="case-card-num">02 · B2C · Em construção</div>
+            <div class="case-card-name">Marcas que ficam</div>
+            <div class="case-card-desc">Como grandes marcas de consumo criam vínculos emocionais duradouros.</div>
+          </div>
+          <div class="case-card-bottom">
+            <div class="case-card-tags"><span class="case-tag" style="border-color:rgba(60,28,13,.12);color:var(--mid)">Marketing B2C</span><span class="case-tag" style="border-color:rgba(60,28,13,.12);color:var(--mid)">Estratégia</span></div>
+            <span class="case-arrow" style="color:var(--text)">↗</span>
+          </div>
+        </a>
+        <a class="case-card light case-card-wide" href="#case:cafe">
+          <div>
+            <div class="case-card-num">03 · Branding · Autoral</div>
+            <div class="case-card-name">Café Marqueteiro</div>
+            <div class="case-card-desc">Branding completo para uma marca que fala a língua de quem faz comunicação.</div>
+          </div>
+          <div class="case-card-bottom" style="flex-direction:column;align-items:flex-end;gap:1rem">
+            <div class="case-card-tags"><span class="case-tag" style="border-color:rgba(60,28,13,.12);color:var(--mid)">Branding</span><span class="case-tag" style="border-color:rgba(60,28,13,.12);color:var(--mid)">Autoral</span></div>
+            <span class="case-arrow" style="color:var(--text)">↗</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sobre -->
+  <div class="sobre-bg" id="sobre">
+    <div class="section shell">
+      <div class="sobre-grid">
+        <div>
+          <div class="sobre-photo"><img src="../../OIP.webp" alt="Ana Julia Souza"></div>
+        </div>
+        <div class="sobre-copy">
+          <div class="eyebrow">Sobre mim</div>
+          <h2 class="section-title" style="color:var(--paper)">Estratégia e <em>sensibilidade</em> juntas.</h2>
+          <p>Sou estudante de Publicidade e Propaganda com foco em marketing. <strong>Gosto de entender o que faz as pessoas pararem, sentirem e decidirem</strong> — e de transformar esse entendimento em comunicação que funciona.</p>
+          <p>Hoje atuo em atendimento ao cliente, onde pratico escuta ativa, gestão de demandas e resolução de situações. Ao mesmo tempo, crio projetos próprios porque acredito que iniciativa também é um portfólio.</p>
+          <div class="sobre-publigirls">
+            <div class="publigirls-label">Iniciativa · Publigirls</div>
+            <p class="publigirls-text">Fundei a Publigirls para criar um espaço de troca real entre mulheres da comunicação. Naming, identidade, estratégia de conteúdo — tudo por conta própria.</p>
+          </div>
+          <div class="competencias">
+            <div class="comp-row"><span class="comp-name">Estratégia de conteúdo</span><div class="comp-bar"><div class="comp-fill" style="width:88%"></div></div></div>
+            <div class="comp-row"><span class="comp-name">Branding</span><div class="comp-bar"><div class="comp-fill" style="width:82%"></div></div></div>
+            <div class="comp-row"><span class="comp-name">Marketing B2C</span><div class="comp-bar"><div class="comp-fill" style="width:76%"></div></div></div>
+            <div class="comp-row"><span class="comp-name">Atendimento &amp; relacionamento</span><div class="comp-bar"><div class="comp-fill" style="width:80%"></div></div></div>
+            <div class="comp-row"><span class="comp-name">Direção criativa</span><div class="comp-bar"><div class="comp-fill" style="width:70%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contato -->
+  <div class="section" id="contato">
+    <div class="shell contato-grid">
+      <div class="contato-copy">
+        <div class="eyebrow">Contato</div>
+        <h2 class="section-title">Vamos criar algo que <em>faça sentido.</em></h2>
+        <p>Aberta a estágios, freelas e parcerias. Me conta o que você tem em mente — uma boa ideia merece uma boa conversa.</p>
+      </div>
+      <div class="contato-links">
+        <a class="contact-row" href="mailto:anajuliamartinezdesouza@gmail.com">
+          <div><div class="contact-row-label">E-mail</div><div class="contact-row-val">anajuliamartinezdesouza@gmail.com</div></div>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a class="contact-row" href="#">
+          <div><div class="contact-row-label">LinkedIn</div><div class="contact-row-val">Ana Julia Souza</div></div>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a class="contact-row" href="#">
+          <div><div class="contact-row-label">Instagram</div><div class="contact-row-val">@anajuliasouza</div></div>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Ana Julia Souza — Portfólio · Template 06</span>
+    <a href="../../index.html">← Galeria de propostas</a>
+  </div>
+
+</div><!-- /home -->
+
+<!-- ══════════ PROJETOS ══════════ -->
+<div data-screen="projetos" hidden>
+  <div class="proj-hero">
+    <div class="proj-hero-inner">
+      <a class="cd-back" href="#home">← Início</a>
+      <div class="cd-eyebrow">Arquivo completo</div>
+      <h1 style="font-family:var(--sans);font-size:clamp(2rem,4vw,3.5rem);font-weight:700;letter-spacing:-.02em;color:var(--paper)">Projetos.</h1>
+    </div>
+  </div>
+  <div class="proj-grid" id="proj-grid-t6"></div>
+  <div class="footer">
+    <a href="#home" style="color:rgba(243,236,223,.35)">← Voltar ao início</a>
+    <a href="../../index.html" style="color:rgba(243,236,223,.35)">Galeria de propostas</a>
+  </div>
+</div>
+
+<!-- ══════════ CASE ══════════ -->
+<div data-screen="case" hidden id="case-screen-t6"></div>
+
+<script>
+  var CASES = {
+    publigirls: {
+      eyebrow: 'Case 01 · Comunidade · 2024',
+      title: 'Publigirls',
+      description: 'Construção de identidade e estratégia de comunidade para conectar mulheres da comunicação.',
+      tags: ['Branding', 'Comunidade', 'Conteúdo'],
+      tipo: 'Projeto próprio', status: 'Ativo', papel: 'Fundadora', ano: '2024',
+      context: 'Mulheres da área de comunicação precisavam de um espaço com mais intenção — não só um lugar para postar vagas, mas um ambiente com identidade, curadoria e senso de pertencimento real.',
+      brief: 'Como criar uma comunidade que tivesse marca própria, linguagem consistente e uma razão de existir além do networking superficial?',
+      approach: 'Parti do naming, desenvolvi a identidade visual e o tom de voz, defini os pilares de conteúdo e construí a presença nas redes com curadoria que refletia o que a comunidade acreditava.',
+      aprendizado: 'Construir comunidade é, antes de tudo, construir confiança. A parte mais difícil não foi a marca — foi manter consistência e escuta quando a comunidade foi crescendo.',
+      bullets: ['Naming e conceito da comunidade', 'Identidade visual e tom de voz', 'Estratégia de conteúdo para redes', 'Moderação e articulação de membros', 'Curadoria de oportunidades'],
+      featured: '../../OIP.webp',
+      images: [
+        { src: '../../OIP.webp', label: 'Identidade visual — logo e sistema' },
+        { src: '../../OIP.webp', label: 'Posts para Instagram' },
+        { src: '../../OIP.webp', label: 'Material de divulgação' }
+      ],
+      note: null
+    },
+    nestle: {
+      eyebrow: 'Case 02 · Conceito B2C · 2025',
+      title: 'Marcas que ficam',
+      description: 'Estudo sobre como marcas de grande consumo criam lealdade emocional em mercados saturados.',
+      tags: ['Marketing B2C', 'Estratégia', 'Conceito'],
+      tipo: 'Estudo conceitual', status: 'Em construção', papel: 'Pesquisadora', ano: '2025',
+      context: 'Trabalhando próxima ao universo de grandes marcas de consumo, comecei a observar por que certas marcas permanecem na memória das pessoas mesmo quando a concorrência oferece algo tecnicamente equivalente.',
+      brief: 'Como marcas de grande consumo constroem vínculos emocionais que resistem à concorrência e ao tempo? Qual é o papel da comunicação nesse processo?',
+      approach: 'Análise de campanhas, entrevistas informais com consumidores e construção de framework que mapeia os pontos de contato onde o vínculo emocional se forma — e onde se perde.',
+      aprendizado: 'O que mais me surpreendeu: lealdade raramente nasce do produto. Nasce de um momento específico — uma lembrança, um ritual, uma sensação que a marca soube nomear primeiro.',
+      bullets: ['Análise de campanhas B2C', 'Mapeamento de pontos de contato emocionais', 'Estudo de comportamento do consumidor', 'Framework de posicionamento afetivo'],
+      featured: '../../OIP.webp',
+      images: [
+        { src: '../../OIP.webp', label: 'Mapeamento de pontos de contato' },
+        { src: '../../OIP.webp', label: 'Framework de posicionamento afetivo' },
+        { src: '../../OIP.webp', label: 'Análise de campanhas' }
+      ],
+      note: 'Projeto conceitual. A relação com a Nestlé não representa parceria ou campanha oficial. Conteúdo em confirmação.'
+    },
+    cafe: {
+      eyebrow: 'Case 03 · Branding · Autoral',
+      title: 'Café Marqueteiro',
+      description: 'Branding completo para uma marca de café criada para profissionais de comunicação.',
+      tags: ['Branding', 'Autoral', 'Direção criativa'],
+      tipo: 'Projeto autoral', status: 'Concluído', papel: 'Diretora criativa', ano: '2024',
+      context: 'Queria praticar o processo completo de criação de marca. Escolhi café porque é um produto que profissionais de comunicação consomem enquanto pensam em marcas — a sobreposição era perfeita.',
+      brief: 'Como criar uma marca de café que se comunique com profissionais de marketing sem ser óbvia demais — sem virar só um café com jargões de agência?',
+      approach: 'O naming carrega duplo sentido: o café de quem faz marketing, e o próprio ato de marquetar. A partir desse conceito, desenvolvi identidade, tom de voz e direção de conteúdo.',
+      aprendizado: 'A linha entre conceito inteligente e conceito obscuro é fina. Simplifiquei várias vezes para que a ideia funcionasse nos formatos mais curtos — uma legenda, um card, um nome.',
+      bullets: ['Naming e conceito de marca', 'Identidade visual completa', 'Tom de voz e copywriting', 'Direção criativa para redes sociais'],
+      featured: '../../OIP.webp',
+      images: [
+        { src: '../../OIP.webp', label: 'Logo e sistema visual' },
+        { src: '../../OIP.webp', label: 'Aplicações — embalagem e papelaria' },
+        { src: '../../OIP.webp', label: 'Conteúdo para Instagram' }
+      ],
+      note: 'Projeto autoral / acadêmico.'
+    }
+  };
+
+  var screens = document.querySelectorAll('[data-screen]');
+  var anchors = ['sobre', 'cases', 'contato'];
+
+  function show(name) {
+    screens.forEach(function(s) { s.hidden = s.dataset.screen !== name; });
+    window.scrollTo(0, 0);
+  }
+
+  function renderCase(c) {
+    var note = c.note ? '<div class="cd-note">⚠ ' + c.note + '</div>' : '';
+    var bullets = c.bullets.map(function(b){ return '<li>' + b + '</li>'; }).join('');
+    var gallery = c.images.map(function(img){
+      return '<div class="gal-item"><img src="' + img.src + '" alt="' + img.label + '"></div>';
+    }).join('');
+
+    document.getElementById('case-screen-t6').innerHTML =
+      '<div class="cd-hero"><div class="cd-hero-inner">' +
+        '<a class="cd-back" href="#projetos">← Projetos</a>' +
+        '<div class="cd-eyebrow">' + c.eyebrow + '</div>' +
+        '<h1 class="cd-title">' + c.title + '</h1>' +
+        '<p class="cd-desc">' + c.description + '</p>' +
+        '<div class="cd-tags">' + c.tags.map(function(t){ return '<span class="cd-tag">'+t+'</span>'; }).join('') + '</div>' +
+      '</div></div>' +
+      '<div class="cd-meta"><div class="cd-meta-inner">' +
+        '<div class="cd-meta-item"><div class="m-label">Tipo</div><div class="m-val">' + c.tipo + '</div></div>' +
+        '<div class="cd-meta-item"><div class="m-label">Status</div><div class="m-val">' + c.status + '</div></div>' +
+        '<div class="cd-meta-item"><div class="m-label">Meu papel</div><div class="m-val">' + c.papel + '</div></div>' +
+        '<div class="cd-meta-item"><div class="m-label">Ano</div><div class="m-val">' + c.ano + '</div></div>' +
+      '</div></div>' +
+      '<div class="cd-featured"><img src="' + c.featured + '" alt="' + c.title + '"></div>' +
+      '<div class="cd-body"><div class="cd-body-inner">' +
+        '<div class="cd-cols">' +
+          '<div>' +
+            '<div class="cd-block"><div class="cd-label">Contexto</div><div class="cd-text">' + c.context + note + '</div></div>' +
+            '<div class="cd-block"><div class="cd-label">O briefing</div><div class="cd-text">' + c.brief + '</div></div>' +
+            '<div class="cd-block"><div class="cd-label">A abordagem</div><div class="cd-text">' + c.approach + '</div></div>' +
+          '</div>' +
+          '<div><div class="cd-block"><div class="cd-label">Entregas</div><ul class="cd-bullets">' + bullets + '</ul></div></div>' +
+        '</div>' +
+        '<div class="cd-gallery-label">Galeria do projeto</div>' +
+        '<div class="cd-gallery">' + gallery + '</div>' +
+        '<div class="cd-aprendizado"><div class="cd-label">O que aprendi</div><p class="cd-aprendizado-text">' + c.aprendizado + '</p></div>' +
+        '<div class="cd-ctas"><a class="btn btn-caramel" href="#projetos">← Ver outros projetos</a><a class="btn btn-dark" href="#contato">Vamos conversar ↗</a></div>' +
+      '</div></div>' +
+      '<div class="footer"><a href="#projetos" style="color:rgba(243,236,223,.35)">← Projetos</a><a href="../../index.html" style="color:rgba(243,236,223,.35)">Galeria de propostas</a></div>';
+  }
+
+  function renderProjGrid() {
+    var grid = document.getElementById('proj-grid-t6');
+    if (!grid || grid.childElementCount > 0) return;
+    Object.keys(CASES).forEach(function(key, i) {
+      var c = CASES[key];
+      var bullets = c.bullets.slice(0, 3).map(function(b){ return '<li>' + b + '</li>'; }).join('');
+      var tags = c.tags.map(function(t){ return '<span class="proj-card-tag">'+t+'</span>'; }).join('');
+      var card = document.createElement('a');
+      card.className = 'proj-card';
+      card.href = '#case:' + key;
+      card.innerHTML =
+        '<div class="proj-thumb"><img src="' + c.featured + '" alt="' + c.title + '"></div>' +
+        '<div class="proj-col">' +
+          '<div>' +
+            '<div class="proj-card-n">0' + (i+1) + ' · ' + c.tipo + '</div>' +
+            '<div class="proj-card-name">' + c.title + '</div>' +
+            '<div class="proj-card-desc">' + c.description + '</div>' +
+          '</div>' +
+          '<div>' +
+            '<div class="proj-card-tags">' + tags + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="proj-col">' +
+          '<div>' +
+            '<div class="proj-col-label">O que resolveu</div>' +
+            '<p class="proj-col-text">' + c.brief + '</p>' +
+          '</div>' +
+          '<div>' +
+            '<div class="proj-col-label" style="margin-top:1.25rem">O que foi feito</div>' +
+            '<ul class="proj-col-bullets">' + bullets + '</ul>' +
+          '</div>' +
+          '<div class="proj-card-footer">' +
+            '<span class="proj-card-status">' + c.status + ' · ' + c.ano + '</span>' +
+            '<span class="proj-card-arrow">↗</span>' +
+          '</div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  function route() {
+    var hash = location.hash.slice(1) || 'home';
+    var parts = hash.split(':');
+    var screen = parts[0];
+    var param  = parts[1];
+    if (anchors.indexOf(screen) !== -1) {
+      show('home');
+      setTimeout(function() {
+        var el = document.getElementById(screen);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+      return;
+    }
+    show(screen);
+    if (screen === 'projetos') renderProjGrid();
+    if (screen === 'case' && param && CASES[param]) renderCase(CASES[param]);
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+</script>
+
+<a class="back-home" href="../../index.html">← Galeria</a>
+</body>
+</html>

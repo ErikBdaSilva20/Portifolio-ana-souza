@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 01 — Propostas visuais</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    #viewer { display:none; flex-direction:column; height:100vh; }
+    #viewer.active { display:flex; }
+    #viewer-bar {
+      display:flex; align-items:center; gap:1rem;
+      padding:.75rem 1.25rem; background:#1C1714; color:#F3ECDF;
+      font-size:.875rem; flex-shrink:0;
+    }
+    #viewer-bar button {
+      background:none; border:1px solid rgba(243,236,223,.3);
+      color:#F3ECDF; padding:.35rem .9rem; border-radius:2rem;
+      cursor:pointer; font-size:.8rem;
+    }
+    #viewer-bar button:hover { background:rgba(243,236,223,.1); }
+    #viewer-bar span { opacity:.6; }
+    #frame { flex:1; border:none; width:100%; }
+  </style>
+</head>
+<body class="template-hub">
+
+  <!-- ── GALERIA ── -->
+  <div id="gallery">
+    <main class="hub-shell">
+      <header class="hub-header">
+        <a class="brand" href="../../index.html">ana<span>julia</span>®</a>
+        <span>Template 01 · três propostas</span>
+      </header>
+
+      <section class="hub-intro">
+        <div class="eyebrow">Proposta de portfólio</div>
+        <h1>Três jeitos de<br><em>contar a mesma história.</em></h1>
+        <p>Clique em uma proposta para abrir e navegar pelas telas internas: início, projetos e detalhe de case.</p>
+      </section>
+
+      <section class="template-list" aria-label="Propostas visuais">
+        <button class="template-tile tile-cacau" data-template="editorial-cacau" data-label="Editorial Cacau">
+          <span>01 / Recomendado</span>
+          <strong>Editorial<br>Cacau</strong>
+          <small>Autoral, quente e estratégico.</small>
+          <b>Abrir ↗</b>
+        </button>
+        <button class="template-tile tile-minimal" data-template="minimal-conexao" data-label="Minimal Conexão">
+          <span>02 / Alternativa</span>
+          <strong>Minimal<br>Conexão</strong>
+          <small>Direto, sofisticado e corporativo.</small>
+          <b>Abrir ↗</b>
+        </button>
+        <button class="template-tile tile-social" data-template="social-poster" data-label="Social Poster">
+          <span>03 / Alternativa</span>
+          <strong>Social<br>Poster</strong>
+          <small>Vibrante, editorial e nativo digital.</small>
+          <b>Abrir ↗</b>
+        </button>
+      </section>
+
+      <footer class="hub-footer">
+        <span>Template 01 · versão de apresentação</span>
+        <a href="../../index.html">← Voltar à galeria raiz</a>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ── VIEWER (iframe) ── -->
+  <div id="viewer">
+    <div id="viewer-bar">
+      <button id="back-btn">← Voltar às propostas</button>
+      <span id="viewer-label"></span>
+    </div>
+    <iframe id="frame" title="Visualização do template"></iframe>
+  </div>
+
+  <script>
+    var gallery = document.getElementById('gallery');
+    var viewer  = document.getElementById('viewer');
+    var frame   = document.getElementById('frame');
+    var label   = document.getElementById('viewer-label');
+
+    document.querySelectorAll('[data-template]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        gallery.hidden = true;
+        viewer.classList.add('active');
+        label.textContent = btn.dataset.label;
+        frame.src = btn.dataset.template + '/index.html';
+      });
+    });
+
+    document.getElementById('back-btn').addEventListener('click', function() {
+      gallery.hidden = false;
+      viewer.classList.remove('active');
+      frame.src = '';
+    });
+  </script>
+
+</body>
+</html>

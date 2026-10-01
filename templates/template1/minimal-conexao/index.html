@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Ana Julia Martinez — proposta Minimal Conexão.">
+  <title>Minimal Conexão — Ana Julia</title>
+  <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body class="t-minimal">
+
+  <header class="site-header">
+    <a class="brand" href="#home">ajm®</a>
+    <nav class="nav">
+      <a href="#sobre">Perfil</a>
+      <a href="#projetos">Projetos</a>
+      <a class="nav-cta" href="#contato">Contato ↗</a>
+    </nav>
+  </header>
+
+  <!-- ── TELA: HOME ── -->
+  <div data-screen="home">
+    <main>
+      <section class="minimal-hero shell">
+        <div class="minimal-hero-top">
+          <div>
+            <div class="eyebrow">Ana Julia Martinez</div>
+            <h1>Ideias que<br><em>aproximam.</em></h1>
+          </div>
+          <p class="intro">Publicidade, marketing e conteúdo para construir relações relevantes entre marcas e pessoas.</p>
+        </div>
+        <div class="minimal-hero-bottom">
+          <div class="minimal-line-art" aria-label="Composição gráfica abstrata"></div>
+          <div class="minimal-index">ESTUDANTE DE PUBLICIDADE E PROPAGANDA<br>MARKETING · B2C · SÃO PAULO, SP</div>
+        </div>
+      </section>
+
+      <section class="minimal-work shell">
+        <div class="minimal-heading">
+          <div>
+            <div class="eyebrow">Trabalhos selecionados</div>
+            <h2>O que eu construo.</h2>
+          </div>
+          <a class="button" href="#projetos">Arquivo completo ↗</a>
+        </div>
+        <div class="minimal-grid">
+          <a class="minimal-card" href="#case:publigirls"><span>01</span><strong>Publigirls</strong><span>Comunidade, conteúdo e conexão.</span><i>↗</i></a>
+          <a class="minimal-card" href="#case:nestle"><span>02</span><strong>Marcas que ficam</strong><span>Experiência e marketing B2C.</span><i>↗</i></a>
+          <a class="minimal-card" href="#case:cafe"><span>03</span><strong>Café Marqueteiro</strong><span>Branding e direção criativa.</span><i>↗</i></a>
+        </div>
+      </section>
+
+      <section class="section about" id="sobre">
+        <div class="shell about-layout">
+          <div>
+            <div class="eyebrow">Perfil</div>
+            <h2>Escuta, clareza e repertório.</h2>
+          </div>
+          <div class="about-copy">
+            <p>Tenho interesse em entender comportamentos, organizar caminhos e criar uma comunicação que seja simples de sentir e fácil de lembrar.</p>
+            <div class="about-list">
+              <div class="about-row"><strong>Estratégia de conteúdo</strong><span>01</span></div>
+              <div class="about-row"><strong>Branding</strong><span>02</span></div>
+              <div class="about-row"><strong>Atendimento</strong><span>03</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contato">
+      <div class="shell">
+        <div class="eyebrow">Contato</div>
+        <h2>Vamos conversar sobre boas ideias.</h2>
+        <a class="button button-dark" href="mailto:anajuliamartinezdesouza@gmail.com">Enviar e-mail ↗</a>
+        <div class="footer-bottom">
+          <span>Template 02 · Minimal Conexão</span>
+          <a href="../../index.html">Voltar à galeria</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ── TELA: PROJETOS ── -->
+  <div data-screen="projetos" hidden>
+    <main>
+      <section class="minimal-work shell" style="padding-top:6rem">
+        <div class="minimal-heading">
+          <div>
+            <div class="eyebrow">Arquivo completo</div>
+            <h1>Projetos.</h1>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrar por categoria">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="Comunidade">Comunidade</button>
+            <button class="filter-btn" data-filter="Branding">Branding</button>
+            <button class="filter-btn" data-filter="Estratégia">Estratégia</button>
+            <button class="filter-btn" data-filter="Conteúdo">Conteúdo</button>
+          </div>
+        </div>
+        <div class="minimal-grid" id="proj-grid-minimal"></div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="shell">
+        <div class="footer-bottom">
+          <a href="#home">← Voltar à home</a>
+          <a href="../../index.html">Galeria de templates</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ── TELA: CASE ── -->
+  <div data-screen="case" hidden>
+    <main id="case-main-minimal" class="shell" style="padding-top:6rem;padding-bottom:6rem"></main>
+  </div>
+
+  <script>
+    var CASES = {
+      publigirls: {
+        eyebrow: 'Case 01 · Comunidade · 2024',
+        title: 'Publigirls',
+        description: 'Comunidade criada para conectar e apoiar mulheres da área de comunicação.',
+        tags: ['Branding', 'Comunidade', 'Conteúdo'],
+        context: 'Mulheres da área de comunicação precisam de espaços de troca, apoio e circulação de oportunidades.',
+        role: 'Fundadora. Responsável pela criação do conceito, direção de comunicação, produção de conteúdo e articulação da rede.',
+        bullets: ['Criação da identidade e naming', 'Estratégia de conteúdo para redes sociais', 'Organização e moderação da comunidade', 'Articulação de networking'],
+        note: null
+      },
+      nestle: {
+        eyebrow: 'Case 02 · Conceito B2C · Em construção',
+        title: 'Marcas que ficam',
+        description: 'Estudo conceitual de marketing B2C inspirado em experiências de marca.',
+        tags: ['Marketing B2C', 'Estratégia', 'Conceito'],
+        context: 'Conexão profissional com o universo Nestlé. Conteúdo, vínculo e permissão de uso em confirmação.',
+        role: 'Pesquisa, análise de comportamento do consumidor e desenvolvimento de conceito estratégico.',
+        bullets: ['Estudo de experiência de marca', 'Análise de público B2C', 'Desenvolvimento de conceito criativo'],
+        note: 'Projeto conceitual. A relação com a Nestlé não representa parceria ou campanha oficial. Conteúdo pendente de autorização.'
+      },
+      cafe: {
+        eyebrow: 'Case 03 · Branding · Autoral',
+        title: 'Café Marqueteiro',
+        description: 'Projeto autoral de branding e direção criativa para uma marca conceitual.',
+        tags: ['Branding', 'Autoral', 'Direção criativa'],
+        context: 'Projeto conceitual criado para explorar naming, identidade visual e construção de presença de marca.',
+        role: 'Criação do conceito, naming, direção de comunicação e desenvolvimento da identidade.',
+        bullets: ['Naming e conceito de marca', 'Identidade visual e tom de voz', 'Direção criativa para conteúdo'],
+        note: 'Projeto autoral / acadêmico.'
+      }
+    };
+
+    var screens = document.querySelectorAll('[data-screen]');
+    var anchors = ['sobre', 'contato'];
+
+    function show(name) {
+      screens.forEach(function(s) { s.hidden = s.dataset.screen !== name; });
+      window.scrollTo(0, 0);
+    }
+
+    function renderCase(c) {
+      var note = c.note ? '<p style="margin-top:1rem;padding:.75rem 1rem;background:#f0f0f0;border-left:3px solid #999;font-size:.85rem">⚠ ' + c.note + '</p>' : '';
+      var bullets = c.bullets.map(function(b) { return '<li>' + b + '</li>'; }).join('');
+      var tags = c.tags.map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('');
+      document.getElementById('case-main-minimal').innerHTML =
+        '<a href="#projetos" style="display:inline-block;margin-bottom:2rem;font-size:.875rem">← Voltar aos projetos</a>' +
+        '<div class="eyebrow">' + c.eyebrow + '</div>' +
+        '<h1 style="margin:.5rem 0 1.5rem">' + c.title + '</h1>' +
+        '<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem">' + tags + '</div>' +
+        '<p style="font-size:1.125rem;max-width:60ch;margin-bottom:3rem">' + c.description + '</p>' +
+        '<div style="display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:3rem">' +
+          '<div><h2 style="font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Contexto</h2><p>' + c.context + '</p>' + note + '</div>' +
+          '<div><h2 style="font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Atuação</h2><p>' + c.role + '</p></div>' +
+          '<div><h2 style="font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Entregas</h2><ul style="padding-left:1.25rem">' + bullets + '</ul></div>' +
+        '</div>' +
+        '<div style="display:flex;gap:1rem;flex-wrap:wrap">' +
+          '<a class="button button-dark" href="#projetos">Ver outros projetos</a>' +
+          '<a class="button" href="#contato">Entrar em contato ↗</a>' +
+        '</div>';
+    }
+
+    function renderProjGrid() {
+      var grid = document.getElementById('proj-grid-minimal');
+      if (!grid || grid.childElementCount > 0) return;
+      Object.keys(CASES).forEach(function(key, i) {
+        var c = CASES[key];
+        var card = document.createElement('a');
+        card.className = 'minimal-card';
+        card.href = '#case:' + key;
+        card.dataset.tags = c.tags.join(',');
+        card.innerHTML = '<span>0' + (i+1) + '</span><strong>' + c.title + '</strong><span>' + c.description + '</span><i>↗</i>';
+        grid.appendChild(card);
+      });
+    }
+
+    function setupFilters() {
+      document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.dataset.filter;
+          document.querySelectorAll('#proj-grid-minimal .minimal-card').forEach(function(card) {
+            card.hidden = filter !== 'todos' && card.dataset.tags.indexOf(filter) === -1;
+          });
+        });
+      });
+    }
+
+    function route() {
+      var hash = location.hash.slice(1) || 'home';
+      var parts = hash.split(':');
+      var screen = parts[0];
+      var param = parts[1];
+
+      if (anchors.indexOf(screen) !== -1) {
+        show('home');
+        setTimeout(function() {
+          var el = document.getElementById(screen);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+        return;
+      }
+
+      show(screen);
+      if (screen === 'projetos') { renderProjGrid(); setupFilters(); }
+      if (screen === 'case' && param && CASES[param]) renderCase(CASES[param]);
+    }
+
+    window.addEventListener('hashchange', route);
+    route();
+  </script>
+
+  <a class="back-home" href="../../../index.html">← Galeria</a>
+</body>
+</html>
