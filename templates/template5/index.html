@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
 
     :root {
       --paper:   #F7F3EE;
@@ -24,6 +24,7 @@
 
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; }
 
     /* ── NAV ── */
     .nav {
@@ -265,6 +266,8 @@
     @media (max-width: 860px) {
       .sobre { grid-template-columns: 1fr; }
       .sobre-foto-wrap { position: static; max-width: 280px; }
+      .case-meta-bar { gap: 1.5rem; }
+      .contato-row-val { overflow-wrap: break-word; min-width: 0; flex: 1; }
       .sobre-copy p { max-width: none; }
       .case-feature { grid-template-columns: 3rem 1fr; }
       .case-detail-block { display: none; }

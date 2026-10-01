@@ -138,6 +138,8 @@ h2 { font-size: clamp(2.2rem, 5vw, 5rem); line-height: .9; }
   .archive-grid { grid-template-columns: 1fr; }
   .archive-card { min-height: 370px; }
   .footer-bottom { flex-direction: column; gap: 12px; }
+  .about-row { flex-wrap: wrap; gap: 8px 24px; }
+  .about-row strong { flex-shrink: 0; }
 }
 
 /* --------------------------------------------------------------------------
@@ -245,9 +247,17 @@ h2 { font-size: clamp(2.2rem, 5vw, 5rem); line-height: .9; }
 .t-social .visual-card { background: var(--ink); border-radius: 22px; }
 
 @media (max-width: 760px) {
-  .template-list { grid-template-columns: 1fr; }
-  .template-tile { min-height: 310px; }
+  /* hub gallery */
+  .hub-shell { padding: 20px 5vw 32px; }
+  .hub-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .hub-header span { font-size: .6rem; }
+  .hub-intro { padding: 48px 0 36px; }
+  .hub-intro h1 { font-size: clamp(2.4rem, 11vw, 4rem); margin: 12px 0 18px; }
+  .template-list { grid-template-columns: 1fr !important; }
+  .template-tile { min-height: 240px; }
   .hub-footer { align-items: start; flex-direction: column; gap: 12px; }
+
+  /* shared template styles */
   .minimal-hero-top, .minimal-heading { align-items: start; flex-direction: column; }
   .minimal-hero-bottom { grid-template-columns: 1fr; }
   .minimal-card { grid-template-columns: 28px 1fr 42px; }

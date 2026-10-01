@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
 
     :root {
       --cream:   #FBF5EC;
@@ -23,7 +23,8 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--cream); color: var(--dark); line-height: 1.6; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; }
 
     /* ── NAV ── */
     .nav {
@@ -251,6 +252,9 @@
       .exp-list { grid-template-columns: 1fr; }
       .manifesto-grid { grid-template-columns: 1fr; }
       .sobre-copy p { max-width: none; }
+      .contact-link { padding: 1.25rem 1.25rem; }
+      .contact-link-val { overflow-wrap: break-word; min-width: 0; flex: 1; }
+      .footer-bar { flex-direction: column; gap: .5rem; text-align: center; }
     }
     @media (max-width: 480px) {
       .case-overview-inner { grid-template-columns: 1fr 1fr; }
