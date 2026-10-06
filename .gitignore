@@ -3,3 +3,9 @@ Thumbs.db
 node_modules/
 .env
 *.log
+
+templates/
+contract
+_bmad
+.claude
+.agents
