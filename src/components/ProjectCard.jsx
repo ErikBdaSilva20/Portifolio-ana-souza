@@ -7,9 +7,10 @@ const ART = {
 export default function ProjectCard({ c, onClick, wide }) {
   return (
     <a
+      href={`/case/${c.slug}`}
       className={`project-card${c.dark ? ' dark' : ''}${wide ? ' wide' : ''}`}
-      onClick={onClick}
-      style={{ cursor: 'pointer', gridColumn: wide ? 'span 2' : undefined }}
+      onClick={(event) => { event.preventDefault(); onClick(event) }}
+      style={{ gridColumn: wide ? 'span 2' : undefined }}
     >
       <div className="project-meta">
         <span>{c.eyebrow}</span>

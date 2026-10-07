@@ -35,9 +35,9 @@ export default function Projetos({ onNav }) {
             {visible.map(c => (
               <a
                 key={c.slug}
+                href={`/case/${c.slug}`}
                 className={`project-card${c.dark ? ' dark' : ''}`}
-                onClick={() => onNav(`case:${c.slug}`)}
-                style={{ cursor: 'pointer' }}
+                onClick={(event) => { event.preventDefault(); onNav(`case:${c.slug}`) }}
               >
                 <div className="project-meta">
                   <span>{c.eyebrow}</span>

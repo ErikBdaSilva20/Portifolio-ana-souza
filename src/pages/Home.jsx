@@ -1,5 +1,4 @@
 import Footer from '../components/Footer'
-import { CASES_LIST } from '../data/cases'
 
 const TAPE_ITEMS = ['ESTRATÉGIA', 'CONTEÚDO', 'CONEXÃO', 'BRANDING', 'PESSOAS']
 // 4 cópias garante loop visualmente perfeito em qualquer largura de tela.
@@ -7,8 +6,6 @@ const TAPE_ITEMS = ['ESTRATÉGIA', 'CONTEÚDO', 'CONEXÃO', 'BRANDING', 'PESSOAS
 const tape = [...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS]
 
 export default function Home({ onNav }) {
-  const featured = CASES_LIST.slice(0, 3)
-
   return (
     <>
       {/* Hero */}
@@ -68,33 +65,38 @@ export default function Home({ onNav }) {
           </div>
 
           <div className="projects-grid">
-            {featured.map((c) => (
-              <a
-                key={c.slug}
-                className={`project-card${c.dark ? ' dark' : ''}`}
-                onClick={() => onNav(`case:${c.slug}`)}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="project-meta">
-                  <span>{c.eyebrow}</span>
+            <a className="project-card" href="/case/publigirls" onClick={(event) => { event.preventDefault(); onNav('case:publigirls') }}>
+              <div className="project-meta"><span>01 / Comunidade</span><span>2024</span></div>
+              <div className="project-bottom">
+                <div>
+                  <h3>Publigirls</h3>
+                  <div className="project-art"><div className="wordmark">Publigirls</div></div>
                 </div>
-                <div className="project-bottom">
-                  <div>
-                    <h3>{c.title}</h3>
-                    <p style={{ fontSize: '.875rem', marginTop: '.35rem', opacity: .7 }}>
-                      {c.description}
-                    </p>
-                  </div>
-                  <span className="arrow">↗</span>
+                <span className="arrow">↗</span>
+              </div>
+            </a>
+            <a className="project-card" href="/case/nestle" onClick={(event) => { event.preventDefault(); onNav('case:nestle') }}>
+              <div className="project-meta"><span>02 / Conceito</span><span>Em construção</span></div>
+              <div className="project-bottom">
+                <div>
+                  <h3>Marcas que ficam</h3>
+                  <div className="project-art"><div className="donut" /></div>
                 </div>
-              </a>
-            ))}
-            <a
-              className="project-card dark"
-              onClick={() => onNav('projetos')}
-              style={{ cursor: 'pointer' }}
-            >
-              <div className="project-meta"><span>Arquivo completo</span></div>
+                <span className="arrow">↗</span>
+              </div>
+            </a>
+            <a className="project-card" href="/case/cafe" onClick={(event) => { event.preventDefault(); onNav('case:cafe') }}>
+              <div className="project-meta"><span>03 / Branding</span><span>Autoral</span></div>
+              <div className="project-bottom">
+                <div>
+                  <h3>Café Marqueteiro</h3>
+                  <div className="project-art"><div className="coffee">☕<br /><small>ideias<br />à mesa</small></div></div>
+                </div>
+                <span className="arrow">↗</span>
+              </div>
+            </a>
+            <a className="project-card dark" href="/projetos" onClick={(event) => { event.preventDefault(); onNav('projetos') }}>
+              <div className="project-meta"><span>Arquivo completo</span><span>↗</span></div>
               <div className="project-bottom">
                 <h3>Ver todos<br />os projetos</h3>
                 <span className="arrow">↗</span>
@@ -105,24 +107,17 @@ export default function Home({ onNav }) {
       </section>
 
       {/* Sobre snippet */}
-      <section className="section section-alt" id="sobre">
+      <section className="section section-dark" id="sobre">
         <div className="shell">
           <div className="about-layout">
             <div>
               <div className="eyebrow">Um pouco sobre mim</div>
               <h2>Curiosa por natureza.<br />Estratégica por escolha.</h2>
-              <div style={{ marginTop: '2rem' }}>
-                <button className="btn btn-dark" onClick={() => onNav('sobre')}>
-                  Saber mais sobre mim ↗
-                </button>
-              </div>
             </div>
             <div className="about-copy">
               <p>
                 Eu acredito que uma boa comunicação nasce quando estratégia e
-                sensibilidade trabalham juntas. Gosto de entender pessoas, organizar
-                ideias e transformar referências em caminhos de comunicação mais
-                claros, relevantes e humanos.
+                sensibilidade trabalham juntas.
               </p>
               <div className="about-list">
                 <div className="about-row"><strong>Marketing digital</strong><span>01</span></div>
