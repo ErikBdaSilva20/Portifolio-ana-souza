@@ -1,0 +1,1 @@
+Arte criada para o feed do Café Marqueteiro focada na divulgação de serviços de comunicação. O objetivo do post é atrair clientes para a sessão de branding personalizada, utilizando apelo visual gastronômico e chamada para ação direta.
