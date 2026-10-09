@@ -7,7 +7,6 @@ import Sobre from './pages/Sobre'
 import Case from './pages/Case'
 import Contato from './pages/Contato'
 import Login from './pages/Login'
-import Painel from './pages/Painel'
 import Leads from './pages/Leads'
 
 function normalizePath(pathname) {
@@ -23,8 +22,8 @@ function parseLocation(pathname) {
   if (path === '/sobre') return { screen: 'sobre' }
   if (path === '/contato') return { screen: 'contato' }
   if (path === '/login')   return { screen: 'login' }
-  if (path === '/painel')  return { screen: 'painel' }
-  if (path === '/painel/leads') return { screen: 'leads' }
+  if (path === '/painel')  return { screen: 'leads' }
+  if (path === '/leads')   return { screen: 'leads' }
   if (path.startsWith('/case/')) {
     return { screen: 'case', param: decodeURIComponent(path.slice('/case/'.length)) }
   }
@@ -67,7 +66,6 @@ export default function App() {
       {screen === 'case'     && <Case slug={param} onNav={navigate} />}
       {screen === 'contato'  && <Contato onNav={navigate} />}
       {screen === 'login'    && <Login onNav={navigate} />}
-      {screen === 'painel'   && <Painel onNav={navigate} />}
       {screen === 'leads'    && <Leads onNav={navigate} />}
       {screen === 'not-found' && (
         <section className="case-page">

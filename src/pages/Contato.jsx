@@ -19,7 +19,7 @@ const INITIAL = {
   whatsapp: '',
   assunto: '',
   mensagem: '',
-  melhor_data: '',
+  melhor_horario: '',
 }
 
 async function enviarLead(dados) {
@@ -163,14 +163,13 @@ export default function Contato({ onNav }) {
                   </div>
 
                   <div className="form-row">
-                    <label className="form-label" htmlFor="melhor_data">Melhor data para contato</label>
+                    <label className="form-label" htmlFor="melhor_horario">Melhor horário para contato</label>
                     <input
-                      id="melhor_data"
+                      id="melhor_horario"
                       className="form-input"
-                      type="date"
-                      value={form.melhor_data}
-                      onChange={set('melhor_data')}
-                      min={new Date().toISOString().split('T')[0]}
+                      type="time"
+                      value={form.melhor_horario}
+                      onChange={set('melhor_horario')}
                     />
                   </div>
 

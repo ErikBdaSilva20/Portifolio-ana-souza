@@ -4,6 +4,8 @@ const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD
 
 export default function Login({ onNav }) {
+  if (localStorage.getItem('admin')) { onNav('leads'); return null }
+
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [erro, setErro] = useState('')
@@ -11,8 +13,8 @@ export default function Login({ onNav }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (email.trim() === ADMIN_EMAIL && senha === ADMIN_PASSWORD) {
-      sessionStorage.setItem('admin', '1')
-      onNav('painel')
+      localStorage.setItem('admin', '1')
+      onNav('leads')
     } else {
       setErro('E-mail ou senha incorretos.')
     }

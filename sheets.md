@@ -76,5 +76,5 @@ Leads enviados pelo formulário de contato do site.
 | `whatsapp` | string | Número de WhatsApp |
 | `assunto` | string | Assunto selecionado no formulário |
 | `mensagem` | string | Mensagem livre |
-| `melhor_data` | string | Melhor data para contato (opcional) |
+| `melhor_horario` | string | Melhor horário para contato (opcional) |
 | `criado_em` | datetime | Timestamp do envio |
