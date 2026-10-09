@@ -5,6 +5,9 @@ import Home from './pages/Home'
 import Projetos from './pages/Projetos'
 import Sobre from './pages/Sobre'
 import Case from './pages/Case'
+import Contato from './pages/Contato'
+import Login from './pages/Login'
+import Leads from './pages/Leads'
 
 function normalizePath(pathname) {
   const path = pathname.replace(/\/+$/, '')
@@ -18,6 +21,9 @@ function parseLocation(pathname) {
   if (path === '/projetos') return { screen: 'projetos' }
   if (path === '/sobre') return { screen: 'sobre' }
   if (path === '/contato') return { screen: 'contato' }
+  if (path === '/login')   return { screen: 'login' }
+  if (path === '/painel')  return { screen: 'leads' }
+  if (path === '/leads')   return { screen: 'leads' }
   if (path.startsWith('/case/')) {
     return { screen: 'case', param: decodeURIComponent(path.slice('/case/'.length)) }
   }
@@ -36,11 +42,6 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    if (loc.screen === 'contato') {
-      setTimeout(() => {
-        document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
-      }, 80)
-    }
   }, [loc])
 
   const navigate = (target) => {
@@ -63,7 +64,9 @@ export default function App() {
       {screen === 'projetos' && <Projetos onNav={navigate} />}
       {screen === 'sobre'    && <Sobre onNav={navigate} />}
       {screen === 'case'     && <Case slug={param} onNav={navigate} />}
-      {screen === 'contato'  && <Home onNav={navigate} />}
+      {screen === 'contato'  && <Contato onNav={navigate} />}
+      {screen === 'login'    && <Login onNav={navigate} />}
+      {screen === 'leads'    && <Leads onNav={navigate} />}
       {screen === 'not-found' && (
         <section className="case-page">
           <div className="shell">

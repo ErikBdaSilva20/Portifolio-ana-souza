@@ -65,7 +65,7 @@ export default function Case({ slug, onNav }) {
         </div>
       </section>
 
-      <Footer />
+      <Footer onNav={onNav} />
     </>
   )
 }

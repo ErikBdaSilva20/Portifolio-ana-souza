@@ -1,0 +1,1 @@
+Logotipo criado em 2025 para marcar o início da minha carreira na área de comunicação e design gráfico. A marca combina o símbolo de um alto-falante com uma xícara de café, unindo conceitualmente o universo do marketing, da difusão de ideias e da energia da criação de conteúdo.

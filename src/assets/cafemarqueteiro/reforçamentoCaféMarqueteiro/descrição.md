@@ -1,0 +1,1 @@
+Peça gráfica promocional desenvolvida para reforçar a identidade do Café Marqueteiro. O foco da publicação foi explorar tipografia e apelo visual para demonstrar o posicionamento de branding e a qualidade de design oferecida pelo perfil.
