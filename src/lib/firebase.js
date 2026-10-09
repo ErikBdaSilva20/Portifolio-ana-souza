@@ -33,21 +33,16 @@ export async function getFirebaseMessaging() {
 
 export async function sendTokenToSheet(token) {
   const url = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL
-  if (!url) {
-    console.warn('[FCM] VITE_GOOGLE_APPS_SCRIPT_URL não configurada — token não enviado')
-    return
-  }
+  if (!url) return
   try {
-    console.log('[FCM] Enviando token para a planilha...')
     await fetch(url, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({ token }),
     })
-    console.log('[FCM] Token enviado para a planilha')
-  } catch (err) {
-    console.error('[FCM] Erro ao enviar token para a planilha:', err)
+  } catch {
+    // silencioso — envio de token é best-effort
   }
 }
 
@@ -61,29 +56,16 @@ export async function getFCMToken() {
   const swRegistration = await navigator.serviceWorker.register(
     "/firebase-messaging-sw.js"
   );
-  console.log("[FCM] SW registrado:", swRegistration.scope, "| estado:", swRegistration.active?.state ?? "instalando");
 
   const { getToken } = await import("firebase/messaging");
-  const config = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
-    vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY,
-  };
-  const missing = Object.entries(config).filter(([, v]) => !v).map(([k]) => k);
-  if (missing.length > 0) console.warn("[FCM] Variáveis ausentes:", missing);
-  else console.log("[FCM] Todas as chaves presentes:", Object.keys(config).join(", "));
 
   try {
     const token = await getToken(messaging, {
       vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY,
       serviceWorkerRegistration: swRegistration,
     });
-    console.log('[FCM] getToken resultado:', token || 'vazio');
-    return token;
-  } catch (err) {
-    console.error('[FCM] getToken erro:', err);
+    return token || null;
+  } catch {
     return null;
   }
 }

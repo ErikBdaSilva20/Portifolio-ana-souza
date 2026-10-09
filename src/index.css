@@ -140,19 +140,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 }
 
 /* notificações */
-.notif-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  padding: .35rem;
-  line-height: 1;
-  opacity: .7;
-  transition: opacity .15s;
-}
-.notif-btn:hover { opacity: 1; }
-.notif-btn:disabled { cursor: not-allowed; opacity: .35; }
-
 /* hamburger */
 .nav-toggle {
   display: none;
@@ -766,6 +753,28 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 }
 .painel-msg { color: var(--cacau-q); }
 .painel-msg--error { color: #c0392b; }
+
+.notif-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.notif-banner--ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.notif-banner--warn {
+  background: #fff8e1;
+  color: var(--cacau);
+  border: 1px solid rgba(185,120,84,.3);
+}
+.notif-banner-text { flex: 1; }
+.notif-banner-btn { white-space: nowrap; flex-shrink: 0; }
 .painel-menu {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

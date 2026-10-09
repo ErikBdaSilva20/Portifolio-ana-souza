@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { getFCMToken, sendTokenToSheet } from '../lib/firebase'
 
 const GAS_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL
 const GAS_SECRET = import.meta.env.VITE_APPS_SCRIPT_SECRET
@@ -25,6 +26,52 @@ function formatHorario(val) {
     return d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
   }
   return val
+}
+
+function NotifBanner() {
+  const [perm, setPerm] = useState(() => Notification.permission)
+  const [loading, setLoading] = useState(false)
+
+  const ativar = useCallback(async () => {
+    setLoading(true)
+    try {
+      const token = await getFCMToken()
+      if (token) {
+        await sendTokenToSheet(token)
+        setPerm('granted')
+      } else {
+        setPerm(Notification.permission)
+      }
+    } catch {
+      setPerm(Notification.permission)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  if (perm === 'granted') {
+    return (
+      <div className="notif-banner notif-banner--ok">
+        Notificações ativas — você receberá alertas quando um novo lead chegar.
+      </div>
+    )
+  }
+
+  return (
+    <div className="notif-banner notif-banner--warn">
+      <div className="notif-banner-text">
+        <strong>Notificações desativadas.</strong>
+        {perm === 'denied'
+          ? ' Você bloqueou as notificações no navegador. Para receber alertas de novos leads, libere o acesso nas configurações do navegador.'
+          : ' Sem ativar as notificações, você não receberá alertas quando um novo lead preencher o formulário.'}
+      </div>
+      {perm !== 'denied' && (
+        <button className="btn btn-dark notif-banner-btn" onClick={ativar} disabled={loading}>
+          {loading ? 'Ativando…' : 'Ativar notificações'}
+        </button>
+      )}
+    </div>
+  )
 }
 
 export default function Leads({ onNav }) {
@@ -58,6 +105,8 @@ export default function Leads({ onNav }) {
             <button className="btn btn-dark" style={{ padding: '.5rem 1rem', fontSize: '.8rem' }} onClick={sair}>Sair</button>
           </div>
         </div>
+
+        <NotifBanner />
 
         {status === 'loading' && <p className="painel-msg">Carregando…</p>}
         {status === 'error'   && <p className="painel-msg painel-msg--error">{erro}</p>}
