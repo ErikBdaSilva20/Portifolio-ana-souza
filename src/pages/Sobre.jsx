@@ -82,7 +82,7 @@ export default function Sobre({ onNav }) {
         </div>
       </section>
 
-      <Footer />
+      <Footer onNav={onNav} />
     </>
   )
 }

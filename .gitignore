@@ -29,8 +29,17 @@ node_modules/
 .env
 *.log
 
+# Dados reais exportados das planilhas
+*.ods
+*.xlsx
+*.csv
+
+# Arquivos de contexto interno (não devem ir pro repositório público)
+p.md
+
 templates/
 contract
 _bmad
 .claude
 .agents
+public/firebase-messaging-sw.js

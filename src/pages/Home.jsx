@@ -1,5 +1,6 @@
 import Footer from '../components/Footer'
 import anaPhoto from '../assets/Ana.jpeg'
+import cafeImg from '../assets/cafemarqueteiro/cafemarqueteiro.jpeg'
 
 const TAPE_ITEMS = ['ESTRATÉGIA', 'CONTEÚDO', 'CONEXÃO', 'BRANDING', 'PESSOAS']
 const tape = [...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS]
@@ -117,38 +118,37 @@ export default function Home({ onNav }) {
           </div>
 
           <div className="projects-grid">
-            <a className="project-card" href="/case/publigirls" onClick={(event) => { event.preventDefault(); onNav('case:publigirls') }}>
+            <a className="project-card card-img" href="/case/publigirls" onClick={(event) => { event.preventDefault(); onNav('case:publigirls') }}
+              style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), url(${cafeImg})` }}>
               <div className="project-meta"><span>01 / Comunidade</span><span>2024</span></div>
               <div className="project-bottom">
-                <div>
-                  <h3>Publigirls</h3>
-                  <div className="project-art"><div className="wordmark">Publigirls</div></div>
-                </div>
+                <div><h3>Publigirls</h3></div>
                 <span className="arrow">↗</span>
               </div>
             </a>
-            <a className="project-card" href="/case/nestle" onClick={(event) => { event.preventDefault(); onNav('case:nestle') }}>
+            <a className="project-card card-img" href="/case/nestle" onClick={(event) => { event.preventDefault(); onNav('case:nestle') }}
+              style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), url(${cafeImg})` }}>
               <div className="project-meta"><span>02 / Conceito</span><span>Em construção</span></div>
               <div className="project-bottom">
-                <div>
-                  <h3>Marcas que ficam</h3>
-                  <div className="project-art"><div className="donut" /></div>
-                </div>
+                <div><h3>Marcas que ficam</h3></div>
                 <span className="arrow">↗</span>
               </div>
             </a>
-            <a className="project-card" href="/case/cafe" onClick={(event) => { event.preventDefault(); onNav('case:cafe') }}>
+            <a className="project-card card-img" href="/case/cafe" onClick={(event) => { event.preventDefault(); onNav('case:cafe') }}
+              style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), url(${cafeImg})` }}>
               <div className="project-meta"><span>03 / Branding</span><span>Autoral</span></div>
               <div className="project-bottom">
-                <div>
-                  <h3>Café Marqueteiro</h3>
-                  <div className="project-art"><div className="coffee">☕<br /><small>ideias<br />à mesa</small></div></div>
-                </div>
+                <div><h3>Café Marqueteiro</h3></div>
                 <span className="arrow">↗</span>
               </div>
             </a>
             <a className="project-card dark" href="/projetos" onClick={(event) => { event.preventDefault(); onNav('projetos') }}>
               <div className="project-meta"><span>Arquivo completo</span><span>↗</span></div>
+              <ul className="card-index">
+                <li><span className="card-index-num">01</span>Publigirls</li>
+                <li><span className="card-index-num">02</span>Marcas que ficam</li>
+                <li><span className="card-index-num">03</span>Café Marqueteiro</li>
+              </ul>
               <div className="project-bottom">
                 <h3>Ver todos<br />os projetos</h3>
                 <span className="arrow">↗</span>
@@ -182,7 +182,7 @@ export default function Home({ onNav }) {
         </div>
       </section>
 
-      <Footer id="contato" />
+      <Footer id="contato" onNav={onNav} />
     </>
   )
 }
