@@ -36,23 +36,27 @@ export default function Projetos({ onNav }) {
               <a
                 key={c.slug}
                 href={`/case/${c.slug}`}
-                className={`project-card${c.dark ? ' dark' : ''}`}
+                className={`project-card${c.dark ? ' dark' : ''}${c.thumb ? ' card-img' : ''}`}
                 onClick={(event) => { event.preventDefault(); onNav(`case:${c.slug}`) }}
               >
-                <div className="project-meta">
-                  <span>{c.eyebrow}</span>
-                </div>
-                <div className="project-bottom">
-                  <div>
-                    <h3>{c.title}</h3>
-                    <p style={{ fontSize: '.875rem', marginTop: '.35rem', opacity: .7 }}>{c.description}</p>
-                    <div className="tags" style={{ marginTop: '1rem' }}>
-                      {c.tags.map(t => (
-                        <span key={t} className={`tag${c.dark ? ' tag-dark' : ''}`}>{t}</span>
-                      ))}
-                    </div>
+                {c.thumb && <img src={c.thumb} alt="" className="card-img-bg" />}
+                {c.thumb && <div className="card-img-overlay" />}
+                <div className={c.thumb ? 'card-img-content' : ''}>
+                  <div className="project-meta">
+                    <span>{c.eyebrow}</span>
                   </div>
-                  <span className="arrow">↗</span>
+                  <div className="project-bottom">
+                    <div>
+                      <h3>{c.title}</h3>
+                      <p style={{ fontSize: '.875rem', marginTop: '.35rem', opacity: .7 }}>{c.description}</p>
+                      <div className="tags" style={{ marginTop: '1rem' }}>
+                        {c.tags.map(t => (
+                          <span key={t} className={`tag${c.dark ? ' tag-dark' : ''}`}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <span className="arrow">↗</span>
+                  </div>
                 </div>
               </a>
             ))}

@@ -1,6 +1,15 @@
+import publigirlsImg from '../assets/publigirls.jpeg'
+import marcasqficamImg from '../assets/cafemarqueteiro/reforcamentoCafeMarqueteiro/marcairresisstivel.jpeg'
+import cafeLogoImg from '../assets/cafemarqueteiro/cafemarqueteiro.jpeg'
+import cafeFeedImg from '../assets/cafemarqueteiro/feedcafe/excelenciapost.jpeg'
+
 export const CASES = {
   publigirls: {
     slug: 'publigirls',
+    thumb: publigirlsImg,
+    images: [
+      { src: publigirlsImg, alt: 'Publigirls — identidade visual da comunidade' },
+    ],
     eyebrow: 'Case 01 · Comunidade · 2024',
     title: 'Publigirls',
     description: 'Comunidade criada para conectar e apoiar mulheres da área de comunicação.',
@@ -19,6 +28,10 @@ export const CASES = {
   },
   nestle: {
     slug: 'nestle',
+    thumb: marcasqficamImg,
+    images: [
+      { src: marcasqficamImg, alt: 'Marcas que ficam — peça gráfica promocional' },
+    ],
     eyebrow: 'Case 02 · Conceito B2C · Em construção',
     title: 'Marcas que ficam',
     description: 'Estudo conceitual de marketing B2C inspirado em experiências de marca.',
@@ -36,6 +49,11 @@ export const CASES = {
   },
   cafe: {
     slug: 'cafe',
+    thumb: cafeLogoImg,
+    images: [
+      { src: cafeLogoImg, alt: 'Café Marqueteiro — logotipo' },
+      { src: cafeFeedImg, alt: 'Café Marqueteiro — post de feed' },
+    ],
     eyebrow: 'Case 03 · Branding · Autoral',
     title: 'Café Marqueteiro',
     description: 'Projeto autoral de branding e direção criativa para uma marca conceitual.',
