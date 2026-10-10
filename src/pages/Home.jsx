@@ -1,7 +1,8 @@
 import Footer from '../components/Footer'
 import anaPhoto from '../assets/Ana.jpeg'
 import cafeImg from '../assets/cafemarqueteiro/cafemarqueteiro.jpeg'
-
+import pubigirls from '../assets/publigirls.jpeg'
+import marcasqficam from '../assets/cafemarqueteiro/reforcamentoCafeMarqueteiro/marcairresisstivel.jpeg'
 const TAPE_ITEMS = ['ESTRATÉGIA', 'CONTEÚDO', 'CONEXÃO', 'BRANDING', 'PESSOAS']
 const tape = [...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS]
 
@@ -118,28 +119,37 @@ export default function Home({ onNav }) {
           </div>
 
           <div className="projects-grid">
-            <a className="project-card card-img" href="/case/publigirls" onClick={(event) => { event.preventDefault(); onNav('case:publigirls') }}
-              style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), url(${cafeImg})` }}>
-              <div className="project-meta"><span>01 / Comunidade</span><span>2024</span></div>
-              <div className="project-bottom">
-                <div><h3>Publigirls</h3></div>
-                <span className="arrow">↗</span>
+            <a className="project-card card-img" href="/case/publigirls" onClick={(event) => { event.preventDefault(); onNav('case:publigirls') }}>
+              <img src={pubigirls} alt="" className="card-img-bg" style={{ objectPosition: 'center center' }} />
+              <div className="card-img-overlay" />
+              <div className="card-img-content">
+                <div className="project-meta"><span>01 / Comunidade</span><span>2024</span></div>
+                <div className="project-bottom">
+                  <div><h3>Publigirls</h3></div>
+                  <span className="arrow">↗</span>
+                </div>
               </div>
             </a>
-            <a className="project-card card-img" href="/case/nestle" onClick={(event) => { event.preventDefault(); onNav('case:nestle') }}
-              style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), url(${cafeImg})` }}>
-              <div className="project-meta"><span>02 / Conceito</span><span>Em construção</span></div>
-              <div className="project-bottom">
-                <div><h3>Marcas que ficam</h3></div>
-                <span className="arrow">↗</span>
+            <a className="project-card card-img" href="/case/nestle" onClick={(event) => { event.preventDefault(); onNav('case:nestle') }}>
+              <img src={marcasqficam} alt="" className="card-img-bg" style={{ objectPosition: 'center 60%' }} />
+              <div className="card-img-overlay" />
+              <div className="card-img-content">
+                <div className="project-meta"><span>02 / Conceito</span><span>Em construção</span></div>
+                <div className="project-bottom">
+                  <div><h3>Marcas que ficam</h3></div>
+                  <span className="arrow">↗</span>
+                </div>
               </div>
             </a>
-            <a className="project-card card-img" href="/case/cafe" onClick={(event) => { event.preventDefault(); onNav('case:cafe') }}
-              style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%), url(${cafeImg})` }}>
-              <div className="project-meta"><span>03 / Branding</span><span>Autoral</span></div>
-              <div className="project-bottom">
-                <div><h3>Café Marqueteiro</h3></div>
-                <span className="arrow">↗</span>
+            <a className="project-card card-img" href="/case/cafe" onClick={(event) => { event.preventDefault(); onNav('case:cafe') }}>
+              <img src={cafeImg} alt="" className="card-img-bg" style={{ objectPosition: 'center center' }} />
+              <div className="card-img-overlay" />
+              <div className="card-img-content">
+                <div className="project-meta"><span>03 / Branding</span><span>Autoral</span></div>
+                <div className="project-bottom">
+                  <div><h3>Café Marqueteiro</h3></div>
+                  <span className="arrow">↗</span>
+                </div>
               </div>
             </a>
             <a className="project-card dark" href="/projetos" onClick={(event) => { event.preventDefault(); onNav('projetos') }}>

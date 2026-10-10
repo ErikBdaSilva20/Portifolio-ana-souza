@@ -54,6 +54,14 @@ export default function Case({ slug, onNav }) {
             </div>
           </div>
 
+          {c.images?.length > 0 && (
+            <div className="case-gallery">
+              {c.images.map((img, i) => (
+                <img key={i} src={img.src} alt={img.alt} className="case-gallery-img" />
+              ))}
+            </div>
+          )}
+
           <div className="case-actions">
             <button className="btn btn-dark" onClick={() => onNav('projetos')}>
               Ver outros projetos
