@@ -12,28 +12,28 @@ import palestraLogoImg from '../myprojects/palestra/logo.webp'
 const _palestraGlob = import.meta.glob('../myprojects/palestra/img*.webp', { eager: true })
 const palestraImages = Object.entries(_palestraGlob)
   .sort(([a], [b]) => parseInt(a.match(/\d+/)[0]) - parseInt(b.match(/\d+/)[0]))
-  .map(([_, m], i) => ({ src: m.default, alt: `Palestra — imagem ${i + 1}` }))
+  .map(([_, m], i) => ({ src: m.default, alt: `Palestra - imagem ${i + 1}` }))
 
 export const CASES = {
   cafe: {
     slug: 'cafe',
     banner: {
       src: cafeBannerImg,
-      caption: 'Peças visuais desenvolvidas com atenção à composição, tipografia e paleta de cores — alinhadas à identidade da marca.',
+      caption: 'Peças visuais desenvolvidas com atenção à composição, tipografia e paleta de cores - alinhadas à identidade da marca.',
     },
     thumb: cafeLogoImg,
     images: [
-      { src: cafeLogoImg, alt: 'Café Marqueteiro — logotipo', fit: 'cover', caption: 'Logotipo criado em 2025 para marcar o início da carreira na área de comunicação e design gráfico. A marca combina o símbolo de um alto-falante com uma xícara de café, unindo o universo do marketing, da difusão de ideias e da energia da criação de conteúdo.' },
-      { src: cafeExcelenciaImg, alt: 'Café Marqueteiro — post excelência', caption: 'Arte para o feed com foco na divulgação de sessão de branding personalizada. Apelo visual gastronômico e chamada para ação direta para atrair novos clientes.' },
-      { src: cafeOportunidadeImg, alt: 'Café Marqueteiro — post oportunidade única', caption: 'Peça para atrair pequenos negócios para a construção de portfólio por meio de serviços de marketing gratuitos, com vagas limitadas. Comunicação persuasiva, hierarquia visual e identidade de marca em formato de feed.' },
-      { src: cafeReforcoImg, alt: 'Café Marqueteiro — post reforço de identidade', caption: 'Arte focada na divulgação de serviços de comunicação com chamada para ação que direciona o público para o texto completo. Contraste tipográfico entre letra preenchida e vazada.' },
+      { src: cafeLogoImg, alt: 'Café Marqueteiro - logotipo', fit: 'cover', caption: 'Logotipo criado em 2025 para marcar o início da carreira na área de comunicação e design gráfico. A marca combina o símbolo de um alto-falante com uma xícara de café, unindo o universo do marketing, da difusão de ideias e da energia da criação de conteúdo.' },
+      { src: cafeExcelenciaImg, alt: 'Café Marqueteiro - post excelência', caption: 'Arte para o feed com foco na divulgação de sessão de branding personalizada. Apelo visual gastronômico e chamada para ação direta para atrair novos clientes.' },
+      { src: cafeOportunidadeImg, alt: 'Café Marqueteiro - post oportunidade única', caption: 'Peça para atrair pequenos negócios para a construção de portfólio por meio de serviços de marketing gratuitos, com vagas limitadas. Comunicação persuasiva, hierarquia visual e identidade de marca em formato de feed.' },
+      { src: cafeReforcoImg, alt: 'Café Marqueteiro - post reforço de identidade', caption: 'Arte focada na divulgação de serviços de comunicação com chamada para ação que direciona o público para o texto completo. Contraste tipográfico entre letra preenchida e vazada.' },
     ],
     eyebrow: 'Case 02 · Branding · Autoral',
     title: 'Café Marqueteiro',
     description: 'Projeto autoral de branding e direção criativa para uma marca conceitual de comunicação.',
     tags: ['Branding', 'Autoral', 'Direção criativa'],
     category: 'Branding',
-    context: 'Projeto conceitual criado para explorar naming, identidade visual e construção de presença de marca — unindo o universo do marketing com a estética do café.',
+    context: 'Projeto conceitual criado para explorar naming, identidade visual e construção de presença de marca - unindo o universo do marketing com a estética do café.',
     role: 'Criação do conceito, naming, logotipo, direção de comunicação e desenvolvimento das peças gráficas para feed.',
     bullets: [
       'Naming e conceito de marca',
@@ -53,7 +53,7 @@ export const CASES = {
     description: 'Palestra de extensão sobre segurança digital e uso responsável da internet para estudantes de escola pública.',
     tags: ['Extensão', 'Acadêmico', 'Educação', 'Conteúdo'],
     category: 'Extensão',
-    context: 'Projeto de extensão do curso de Publicidade e Propaganda, apresentado voluntariamente a adolescentes de uma escola pública. O desafio foi transformar temas sensíveis — saúde mental, cyberbullying, fake news — em conteúdo claro e engajador.',
+    context: 'Projeto de extensão do curso de Publicidade e Propaganda, apresentado voluntariamente a adolescentes de uma escola pública. O desafio foi transformar temas sensíveis - saúde mental, cyberbullying, fake news - em conteúdo claro e engajador.',
     role: 'Pesquisa, desenvolvimento do conteúdo, criação da apresentação visual e facilitação da dinâmica com o público.',
     bullets: [
       'Curadoria de conteúdo sobre segurança digital',
@@ -69,7 +69,7 @@ export const CASES = {
     slug: 'perfume',
     thumb: perfumeImg,
     images: [
-      { src: perfumeImg, alt: 'Essência & Identidade — marca de perfumaria' },
+      { src: perfumeImg, alt: 'Essência & Identidade - marca de perfumaria' },
     ],
     eyebrow: 'Case 04 · Branding · Acadêmico',
     title: 'Essência & Identidade',
@@ -91,7 +91,7 @@ export const CASES = {
     slug: 'publigirls',
     thumb: publigirlsImg,
     images: [
-      { src: publigirlsImg, alt: 'Publigirls — identidade visual da comunidade' },
+      { src: publigirlsImg, alt: 'Publigirls - identidade visual da comunidade' },
     ],
     eyebrow: 'Case 01 · Comunidade · 2024',
     title: 'Publigirls',
@@ -118,7 +118,7 @@ export const CASES = {
     description: 'Estudo conceitual de marketing B2C inspirado em experiências de marca.',
     tags: ['Marketing B2C', 'Estratégia', 'Conceito'],
     category: 'Estratégia',
-    context: 'Conexão profissional com o universo Nestlé. Este espaço está reservado para uma experiência autorizada — conteúdo, vínculo e permissão de uso em confirmação.',
+    context: 'Conexão profissional com o universo Nestlé. Este espaço está reservado para uma experiência autorizada - conteúdo, vínculo e permissão de uso em confirmação.',
     role: 'Pesquisa, análise de comportamento do consumidor e desenvolvimento de conceito estratégico.',
     bullets: [
       'Estudo de experiência de marca',

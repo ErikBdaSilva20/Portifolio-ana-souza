@@ -42,7 +42,7 @@ export async function sendTokenToSheet(token) {
       body: JSON.stringify({ token }),
     })
   } catch {
-    // silencioso — envio de token é best-effort
+    // silencioso - envio de token é best-effort
   }
 }
 

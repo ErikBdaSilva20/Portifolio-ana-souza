@@ -13,14 +13,14 @@ async function fetchLeads() {
 }
 
 function formatData(iso) {
-  if (!iso) return '—'
+  if (!iso) return '-'
   const d = new Date(iso)
   return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
 }
 
 function formatHorario(val) {
   if (!val) return null
-  // Sheets converte time para Date ISO — extrai só HH:MM
+  // Sheets converte time para Date ISO - extrai só HH:MM
   if (val.includes('T')) {
     const d = new Date(val)
     return d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
@@ -52,7 +52,7 @@ function NotifBanner() {
   if (perm === 'granted') {
     return (
       <div className="notif-banner notif-banner--ok">
-        Notificações ativas — você receberá alertas quando um novo lead chegar.
+        Notificações ativas - você receberá alertas quando um novo lead chegar.
       </div>
     )
   }
@@ -118,7 +118,7 @@ export default function Leads({ onNav }) {
               <div key={lead.lead_id} className="lead-card">
 
                 <div className="lead-card-top">
-                  <div className="lead-tag">{lead.assunto || '—'}</div>
+                  <div className="lead-tag">{lead.assunto || '-'}</div>
                   <span className="lead-data-recebido">{formatData(lead.criado_em)}</span>
                 </div>
 
@@ -129,15 +129,15 @@ export default function Leads({ onNav }) {
                 )}
 
                 <div className="lead-card-body">
-                  <div className="lead-nome">{lead.nome || '—'}</div>
+                  <div className="lead-nome">{lead.nome || '-'}</div>
                   <div className="lead-info-group">
                     <div className="lead-info-item">
                       <span className="lead-info-label">E-mail</span>
-                      <a className="lead-info-value lead-link" href={`mailto:${lead.email}`}>{lead.email || '—'}</a>
+                      <a className="lead-info-value lead-link" href={`mailto:${lead.email}`}>{lead.email || '-'}</a>
                     </div>
                     <div className="lead-info-item">
                       <span className="lead-info-label">WhatsApp</span>
-                      <a className="lead-info-value lead-link" href={`https://wa.me/55${String(lead.whatsapp ?? '').replace(/\D/g,'')}`} target="_blank" rel="noopener noreferrer">{lead.whatsapp || '—'}</a>
+                      <a className="lead-info-value lead-link" href={`https://wa.me/55${String(lead.whatsapp ?? '').replace(/\D/g,'')}`} target="_blank" rel="noopener noreferrer">{lead.whatsapp || '-'}</a>
                     </div>
                     {formatHorario(lead.melhor_horario) && (
                       <div className="lead-info-item">

@@ -34,7 +34,7 @@ export default function Home({ onNav }) {
         <div className="shell">
           <div className="hero-grid">
 
-            {/* Texto — esquerda */}
+            {/* Texto - esquerda */}
             <div className="hero-copy">
               <div className="eyebrow">Publicidade &amp; Propaganda · Marketing B2C</div>
               <h1 className="hero-name">
@@ -62,7 +62,7 @@ export default function Home({ onNav }) {
               </div>
             </div>
 
-            {/* Arte / foto — direita */}
+            {/* Arte / foto - direita */}
             <div className="hero-art">
               <div className="hero-collage">
                 <div className="hero-scribble">ideias com propósito</div>
@@ -112,7 +112,7 @@ export default function Home({ onNav }) {
               <p className="publigirls-desc">
                 A <strong>Publigirls</strong> é uma comunidade criada por mim para conectar
                 e apoiar mulheres da área de comunicação. Um espaço de troca, oportunidades
-                e muito networking — com mais de <strong>800 membros</strong> que respiram
+                e muito networking - com mais de <strong>1200 membros</strong> que respiram
                 marketing, branding e conteúdo.
               </p>
               <a href={PUBLIGIRLS} className="btn btn-publigirls" target="_blank" rel="noopener noreferrer">
@@ -121,7 +121,7 @@ export default function Home({ onNav }) {
             </div>
             <div className="publigirls-stats">
               <div className="publigirls-stat">
-                <span className="publigirls-stat-value">800+</span>
+                <span className="publigirls-stat-value">1200+</span>
                 <span className="publigirls-stat-label">Membros</span>
               </div>
               <div className="publigirls-stat">
@@ -187,7 +187,7 @@ export default function Home({ onNav }) {
             </a>
             <a className="project-card dark" href="/projetos" onClick={(event) => { event.preventDefault(); onNav('projetos') }}>
               <p className="card-dark-desc">
-                Do branding autoral ao projeto de extensão — cada trabalho nasce de uma pergunta, uma intenção e muita vontade de comunicar bem.
+                Do branding autoral ao projeto de extensão - cada trabalho nasce de uma pergunta, uma intenção e muita vontade de comunicar bem.
               </p>
               <ul className="card-index">
                 <li><span className="card-index-num">01</span>Café Marqueteiro</li>

@@ -1,10 +1,10 @@
-# Stories de implementação — Editorial Cacau React
+# Stories de implementação - Editorial Cacau React
 
 Ver contexto completo em [`plano-react.md`](./plano-react.md).
 
 ---
 
-## Story 1 — Bootstrap do projeto
+## Story 1 - Bootstrap do projeto
 
 **Como** dev,
 **quero** criar o projeto Vite + React com a estrutura de pastas definida,
@@ -23,7 +23,7 @@ Ver contexto completo em [`plano-react.md`](./plano-react.md).
 
 ---
 
-## Story 2 — Dados (`src/data/cases.js`)
+## Story 2 - Dados (`src/data/cases.js`)
 
 **Como** dev,
 **quero** extrair os dados dos cases para um módulo separado,
@@ -40,7 +40,7 @@ Ver contexto completo em [`plano-react.md`](./plano-react.md).
 
 ---
 
-## Story 3 — Estilos globais (`src/styles/global.css`)
+## Story 3 - Estilos globais (`src/styles/global.css`)
 
 **Como** dev,
 **quero** ter o CSS aprovado disponível no projeto React,
@@ -51,7 +51,7 @@ Ver contexto completo em [`plano-react.md`](./plano-react.md).
 - [ ] Copiar `styles.css` do repo atual para `src/styles/global.css`
 - [ ] Remover classes exclusivas do hub: `.template-hub`, `.hub-shell`, `.hub-header`, `.hub-footer`, `.hub-intro`, `.template-list`, `.template-tile`, `.tile-*`
 - [ ] Remover variações de tema: `.t-minimal`, `.t-social` e todos os seletores aninhados delas
-- [ ] Remover `.back-home` (botão flutuante de galeria — não existe mais)
+- [ ] Remover `.back-home` (botão flutuante de galeria - não existe mais)
 - [ ] Manter todo o resto intacto (variáveis, reset, componentes, media queries)
 - [ ] Importar em `src/main.jsx`: `import './styles/global.css'`
 
@@ -60,7 +60,7 @@ Inspecionar variáveis CSS no browser → `--cacao: #3c1c0d` presente.
 
 ---
 
-## Story 4 — Componentes atômicos
+## Story 4 - Componentes atômicos
 
 **Como** dev,
 **quero** ter os blocos reutilizáveis do design como componentes,
@@ -100,7 +100,7 @@ Componentes importáveis e renderizam sem props extras obrigatórias.
 
 ---
 
-## Story 5 — Header e Footer
+## Story 5 - Header e Footer
 
 **Como** visitante,
 **quero** ver o header e footer corretos em todas as páginas,
@@ -108,7 +108,7 @@ Componentes importáveis e renderizam sem props extras obrigatórias.
 
 ### `Header.jsx`
 - Logo `ana<span>julia</span>®` linkando para `/home`
-- Nav: "Sobre" (scroll `#sobre`), "Projetos" (`/projetos`), "Vamos conversar ↗" (`#contato`) — usa `<Link>` do React Router
+- Nav: "Sobre" (scroll `#sobre`), "Projetos" (`/projetos`), "Vamos conversar ↗" (`#contato`) - usa `<Link>` do React Router
 - Classe `site-header`
 
 ### `Footer.jsx`
@@ -120,7 +120,7 @@ Header e Footer renderizam em todas as 3 rotas sem console errors.
 
 ---
 
-## Story 6 — Página Home (`/home`)
+## Story 6 - Página Home (`/home`)
 
 **Como** visitante,
 **quero** ver a página inicial completa do portfólio,
@@ -128,11 +128,11 @@ Header e Footer renderizam em todas as 3 rotas sem console errors.
 
 ### Seções (em ordem)
 
-1. **Hero** — `.hero-grid` com hero-copy (eyebrow, h1, parágrafo, botões) + hero-art (portrait-frame, stamp, hero-scribble)
-2. **Tape** — faixa `.tape` com `ESTRATÉGIA · CONTEÚDO · CONEXÃO`
-3. **Projetos na home** — `.projects-grid` com 3 cards fixos + card "Ver todos"
-4. **Sobre** (`id="sobre"`) — `.about` com about-layout, about-list com 4 linhas
-5. **Footer/Contato** (`id="contato"`) — via `<Footer />`
+1. **Hero** - `.hero-grid` com hero-copy (eyebrow, h1, parágrafo, botões) + hero-art (portrait-frame, stamp, hero-scribble)
+2. **Tape** - faixa `.tape` com `ESTRATÉGIA · CONTEÚDO · CONEXÃO`
+3. **Projetos na home** - `.projects-grid` com 3 cards fixos + card "Ver todos"
+4. **Sobre** (`id="sobre"`) - `.about` com about-layout, about-list com 4 linhas
+5. **Footer/Contato** (`id="contato"`) - via `<Footer />`
 
 ### Scroll para anchor
 ```jsx
@@ -155,7 +155,7 @@ useEffect(() => {
 
 ---
 
-## Story 7 — Página Projetos (`/projetos`)
+## Story 7 - Página Projetos (`/projetos`)
 
 **Como** visitante,
 **quero** ver todos os projetos com filtro por categoria,
@@ -165,7 +165,7 @@ useEffect(() => {
 
 - Lista todos os cases de `CASES` como `.project-card`
 - Filtros: Todos / Comunidade / Branding / Estratégia / Conteúdo
-- Filtro ativo esconde cards que não têm a tag — via `useState(activeFilter)`
+- Filtro ativo esconde cards que não têm a tag - via `useState(activeFilter)`
 - Filtro "Todos" mostra tudo
 
 ### Estado local
@@ -182,7 +182,7 @@ const visible = filter === 'todos'
 
 ---
 
-## Story 8 — Página Case (`/case/:slug`)
+## Story 8 - Página Case (`/case/:slug`)
 
 **Como** visitante,
 **quero** ver o detalhe de um case,
@@ -213,7 +213,7 @@ if (!c) return <Navigate to="/projetos" />
 
 ---
 
-## Story 9 — Roteamento e App.jsx
+## Story 9 - Roteamento e App.jsx
 
 **Como** dev,
 **quero** o roteamento configurado e funcionando,
@@ -247,7 +247,7 @@ export default function App() {
 
 ---
 
-## Story 10 — Build e deploy
+## Story 10 - Build e deploy
 
 **Como** dev,
 **quero** o app buildado e deployado na Vercel,

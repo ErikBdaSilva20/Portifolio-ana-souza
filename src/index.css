@@ -191,7 +191,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
   padding-bottom: 5rem;
 }
 
-/* texto esquerda · arte direita — espelho do template */
+/* texto esquerda · arte direita - espelho do template */
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 360px);

@@ -155,9 +155,9 @@ Ajustar às informações realmente coletadas pelo site. Não presumir que todos
 
 Os nomes finais devem seguir o padrão já usado no projeto. Sugestões para a função serverless:
 
-- `GOOGLE_SERVICE_ACCOUNT_JSON` — credencial privada da conta de serviço, guardada somente na Vercel;
-- `GOOGLE_SHEETS_SPREADSHEET_ID` — ID da planilha;
-- `FIREBASE_PROJECT_ID` — ID do projeto Firebase usado pelo FCM.
+- `GOOGLE_SERVICE_ACCOUNT_JSON` - credencial privada da conta de serviço, guardada somente na Vercel;
+- `GOOGLE_SHEETS_SPREADSHEET_ID` - ID da planilha;
+- `FIREBASE_PROJECT_ID` - ID do projeto Firebase usado pelo FCM.
 
 A configuração Web pública do Firebase e a VAPID public key podem usar variáveis frontend, por exemplo `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_MESSAGING_SENDER_ID`, `VITE_FIREBASE_APP_ID` e `VITE_FIREBASE_VAPID_KEY`, desde que esses nomes combinem com a configuração atual do projeto.
 
