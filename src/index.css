@@ -743,7 +743,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 
 /* ── Contato page ── */
 .contato-page {
-  padding-top: calc(4rem + 5rem);
+  padding-top: calc(4rem + 2.5rem);
   padding-bottom: 5rem;
   min-height: 80vh;
 }
@@ -826,7 +826,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 /* ── Footer secret button ── */
 /* ── Painel ── */
 .painel-page {
-  padding-top: calc(4rem + 5rem);
+  padding-top: calc(4rem + 2.5rem);
   padding-bottom: 5rem;
   min-height: 80vh;
 }
@@ -1001,7 +1001,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 
 /* ── Case detail ── */
 .case-page {
-  padding-top: calc(4rem + 5rem);
+  padding-top: calc(4rem + 2.5rem);
   padding-bottom: 6rem;
 }
 .case-back {
@@ -1106,17 +1106,21 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 
 /* ── Sobre page ── */
 .sobre-page {
-  padding-top: calc(4rem + 5rem);
+  padding-top: calc(4rem + 2.5rem);
   padding-bottom: 6rem;
+}
+.sobre-page h1 {
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  margin-bottom: 1rem;
 }
 .sobre-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 2.5rem;
   align-items: start;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
   border-bottom: 1px solid var(--linha);
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 .skills-grid {
   display: grid;
@@ -1149,9 +1153,25 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 .formacao-block h3 { font-size: 1rem; margin-bottom: .25rem; }
 .formacao-block p { font-size: .9rem; color: var(--cacau-q); }
 
+.sobre-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.sobre-bio-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+.sobre-bio p {
+  line-height: 1.85;
+  color: var(--cacau-q);
+  margin-bottom: 1.25rem;
+}
+
 /* ── Projetos page ── */
 .projetos-page {
-  padding-top: calc(4rem + 5rem);
+  padding-top: calc(4rem + 2.5rem);
   padding-bottom: 6rem;
 }
 
@@ -1186,10 +1206,19 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
   .projects-grid.cols-3 { grid-template-columns: 1fr; }
   .project-card:nth-child(n) { grid-column: span 1; min-height: 360px; }
 
+  .publigirls-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .publigirls-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; padding: 1.75rem; }
+  .publigirls-stat { flex: 1 1 120px; }
+
   .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-  .sobre-hero { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; }
+  .sobre-hero { grid-template-columns: 1fr; padding-bottom: 3rem; margin-bottom: 3rem; }
+  .sobre-hero .portrait-frame { display: none; }
+  .sobre-content { grid-template-columns: 1fr; gap: 2.5rem; }
+  .sobre-col-right { order: -1; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
   .contato-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .case-gallery { grid-template-columns: 1fr; gap: 1.5rem; }
 
   .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
 }
@@ -1197,4 +1226,11 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.1; }
 @media (max-width: 480px) {
   .section { padding-block: 3.5rem; }
   .btn { padding: .65rem 1.25rem; font-size: .85rem; }
+
+  .sobre-page { padding-bottom: 4rem; }
+  .sobre-hero { gap: 2rem; padding-bottom: 2rem; margin-bottom: 2rem; }
+  .sobre-hero .portrait-frame { height: 220px !important; }
+  .sobre-content { gap: 2rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .formacao-block { padding: 1.5rem; margin-top: 2rem; }
 }
