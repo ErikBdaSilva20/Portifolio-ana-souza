@@ -1,8 +1,6 @@
 import Footer from '../components/Footer'
-import anaPhoto from '../assets/Ana.jpeg'
-import cafeImg from '../assets/cafemarqueteiro/cafemarqueteiro.jpeg'
-import pubigirls from '../assets/publigirls.jpeg'
-import marcasqficam from '../assets/cafemarqueteiro/reforcamentoCafeMarqueteiro/marcairresisstivel.jpeg'
+import anaPhoto from '../assets/Ana.webp'
+import { CASES } from '../data/cases'
 const TAPE_ITEMS = ['ESTRATÉGIA', 'CONTEÚDO', 'CONEXÃO', 'BRANDING', 'PESSOAS']
 const tape = [...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS, ...TAPE_ITEMS]
 
@@ -104,6 +102,41 @@ export default function Home({ onNav }) {
         </div>
       </div>
 
+      {/* Publigirls */}
+      <section className="section section-publigirls">
+        <div className="shell">
+          <div className="publigirls-layout">
+            <div className="publigirls-copy">
+              <div className="eyebrow publigirls-eyebrow">Comunidade</div>
+              <h2 className="publigirls-title">Junte-se à<br />minha comunidade.</h2>
+              <p className="publigirls-desc">
+                A <strong>Publigirls</strong> é uma comunidade criada por mim para conectar
+                e apoiar mulheres da área de comunicação. Um espaço de troca, oportunidades
+                e muito networking — com mais de <strong>800 membros</strong> que respiram
+                marketing, branding e conteúdo.
+              </p>
+              <a href={PUBLIGIRLS} className="btn btn-publigirls" target="_blank" rel="noopener noreferrer">
+                <IconWhatsApp /> Entrar no grupo ↗
+              </a>
+            </div>
+            <div className="publigirls-stats">
+              <div className="publigirls-stat">
+                <span className="publigirls-stat-value">800+</span>
+                <span className="publigirls-stat-label">Membros</span>
+              </div>
+              <div className="publigirls-stat">
+                <span className="publigirls-stat-value">♀</span>
+                <span className="publigirls-stat-label">Comunidade feminina</span>
+              </div>
+              <div className="publigirls-stat">
+                <span className="publigirls-stat-value">✦</span>
+                <span className="publigirls-stat-label">Comunicação & marketing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projetos selecionados */}
       <section className="section section-projects" id="projetos-home">
         <div className="shell">
@@ -119,45 +152,47 @@ export default function Home({ onNav }) {
           </div>
 
           <div className="projects-grid">
-            <a className="project-card card-img" href="/case/publigirls" onClick={(event) => { event.preventDefault(); onNav('case:publigirls') }}>
-              <img src={pubigirls} alt="" className="card-img-bg" style={{ objectPosition: 'center center' }} />
-              <div className="card-img-overlay" />
-              <div className="card-img-content">
-                <div className="project-meta"><span>01 / Comunidade</span><span>2024</span></div>
-                <div className="project-bottom">
-                  <div><h3>Publigirls</h3></div>
-                  <span className="arrow">↗</span>
-                </div>
-              </div>
-            </a>
-            <a className="project-card card-img" href="/case/nestle" onClick={(event) => { event.preventDefault(); onNav('case:nestle') }}>
-              <img src={marcasqficam} alt="" className="card-img-bg" style={{ objectPosition: 'center 60%' }} />
-              <div className="card-img-overlay" />
-              <div className="card-img-content">
-                <div className="project-meta"><span>02 / Conceito</span><span>Em construção</span></div>
-                <div className="project-bottom">
-                  <div><h3>Marcas que ficam</h3></div>
-                  <span className="arrow">↗</span>
-                </div>
-              </div>
-            </a>
             <a className="project-card card-img" href="/case/cafe" onClick={(event) => { event.preventDefault(); onNav('case:cafe') }}>
-              <img src={cafeImg} alt="" className="card-img-bg" style={{ objectPosition: 'center center' }} />
+              <img src={CASES.cafe.thumb} alt="" className="card-img-bg" style={{ objectPosition: 'center center' }} />
               <div className="card-img-overlay" />
               <div className="card-img-content">
-                <div className="project-meta"><span>03 / Branding</span><span>Autoral</span></div>
+                <div className="project-meta"><span>01 / Branding</span><span>Autoral</span></div>
                 <div className="project-bottom">
                   <div><h3>Café Marqueteiro</h3></div>
                   <span className="arrow">↗</span>
                 </div>
               </div>
             </a>
+            <a className="project-card card-img" href="/case/palestra" onClick={(event) => { event.preventDefault(); onNav('case:palestra') }}>
+              <img src={CASES.palestra.thumb} alt="" className="card-img-bg" style={{ objectPosition: 'center center' }} />
+              <div className="card-img-overlay" />
+              <div className="card-img-content">
+                <div className="project-meta"><span>02 / Extensão</span><span>2024</span></div>
+                <div className="project-bottom">
+                  <div><h3>Conectados com Consciência</h3></div>
+                  <span className="arrow">↗</span>
+                </div>
+              </div>
+            </a>
+            <a className="project-card card-img" href="/case/perfume" onClick={(event) => { event.preventDefault(); onNav('case:perfume') }}>
+              <img src={CASES.perfume.thumb} alt="" className="card-img-bg" style={{ objectPosition: 'center center' }} />
+              <div className="card-img-overlay" />
+              <div className="card-img-content">
+                <div className="project-meta"><span>03 / Acadêmico</span><span>Faculdade</span></div>
+                <div className="project-bottom">
+                  <div><h3>Essência &amp; Identidade</h3></div>
+                  <span className="arrow">↗</span>
+                </div>
+              </div>
+            </a>
             <a className="project-card dark" href="/projetos" onClick={(event) => { event.preventDefault(); onNav('projetos') }}>
-              <div className="project-meta"><span>Arquivo completo</span><span>↗</span></div>
+              <p className="card-dark-desc">
+                Do branding autoral ao projeto de extensão — cada trabalho nasce de uma pergunta, uma intenção e muita vontade de comunicar bem.
+              </p>
               <ul className="card-index">
-                <li><span className="card-index-num">01</span>Publigirls</li>
-                <li><span className="card-index-num">02</span>Marcas que ficam</li>
-                <li><span className="card-index-num">03</span>Café Marqueteiro</li>
+                <li><span className="card-index-num">01</span>Café Marqueteiro</li>
+                <li><span className="card-index-num">02</span>Conectados com Consciência</li>
+                <li><span className="card-index-num">03</span>Essência &amp; Identidade</li>
               </ul>
               <div className="project-bottom">
                 <h3>Ver todos<br />os projetos</h3>

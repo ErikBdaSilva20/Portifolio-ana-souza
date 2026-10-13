@@ -1,0 +1,3 @@
+Atuação em design gráfico para o Café Marqueteiro, desenvolvendo peças visuais alinhadas à identidade da marca. O trabalho envolveu a criação de materiais gráficos com atenção à composição, à tipografia, à paleta de cores e à consistência visual da comunicação.
+
+(nota para o claude: na sessão desse projeto, utilizar a imagem banner.jpeg como literalmente um banner. Após isso, abaixo, uma legenda com uma seta apontada para a img expliando esse banner. (o texto deve ficar a direita)), e deve ser responsivo logo de inicio

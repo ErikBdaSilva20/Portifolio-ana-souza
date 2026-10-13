@@ -1,5 +1,27 @@
+import { useState } from 'react'
 import Footer from '../components/Footer'
 import { CASES } from '../data/cases'
+
+function Carousel({ images }) {
+  const [idx, setIdx] = useState(0)
+  const img = images[idx]
+  const prev = () => setIdx(i => (i - 1 + images.length) % images.length)
+  const next = () => setIdx(i => (i + 1) % images.length)
+
+  return (
+    <div className="carousel">
+      <div className="carousel-slide">
+        <img src={img.src} alt={img.alt} className="carousel-img" style={img.fit ? { objectFit: img.fit } : undefined} />
+      </div>
+      <div className="carousel-controls">
+        <button className="carousel-btn" onClick={prev}>←</button>
+        <span className="carousel-counter">{idx + 1} / {images.length}</span>
+        <button className="carousel-btn" onClick={next}>→</button>
+      </div>
+      {img.caption && <p className="case-gallery-caption" style={{ textAlign: 'center', marginTop: '.75rem' }}>{img.caption}</p>}
+    </div>
+  )
+}
 
 export default function Case({ slug, onNav }) {
   const c = CASES[slug]
@@ -17,6 +39,8 @@ export default function Case({ slug, onNav }) {
     )
   }
 
+  const useCarousel = c.images?.length > 4
+
   return (
     <>
       <section className="case-page">
@@ -24,6 +48,16 @@ export default function Case({ slug, onNav }) {
           <button className="case-back" onClick={() => onNav('projetos')}>
             ← Voltar aos projetos
           </button>
+
+          {c.banner && (
+            <div className="case-banner">
+              <img src={c.banner.src} alt={c.title} className="case-banner-img" />
+              <div className="case-banner-caption">
+                <span className="case-banner-arrow">↑</span>
+                <p>{c.banner.caption}</p>
+              </div>
+            </div>
+          )}
 
           <div className="eyebrow">{c.eyebrow}</div>
           <h1 style={{ marginBlock: '.5rem 1.25rem' }}>{c.title}</h1>
@@ -55,11 +89,18 @@ export default function Case({ slug, onNav }) {
           </div>
 
           {c.images?.length > 0 && (
-            <div className="case-gallery">
-              {c.images.map((img, i) => (
-                <img key={i} src={img.src} alt={img.alt} className="case-gallery-img" />
-              ))}
-            </div>
+            useCarousel ? (
+              <Carousel images={c.images} />
+            ) : (
+              <div className="case-gallery">
+                {c.images.map((img, i) => (
+                  <div key={i} className="case-gallery-item">
+                    <img src={img.src} alt={img.alt} className="case-gallery-img" style={img.fit ? { objectFit: img.fit } : undefined} />
+                    {img.caption && <p className="case-gallery-caption">{img.caption}</p>}
+                  </div>
+                ))}
+              </div>
+            )
           )}
 
           <div className="case-actions">

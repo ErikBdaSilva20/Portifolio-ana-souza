@@ -1,0 +1,1 @@
+Projeto fictício desenvolvido para a faculdade, com foco na criação de uma marca de perfumaria sofisticada e elegante. A proposta explora a identidade visual, a estética dos frascos e a harmonia entre cores e materiais, transmitindo delicadeza, exclusividade e refinamento.

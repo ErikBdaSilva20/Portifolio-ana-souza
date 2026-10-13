@@ -1,0 +1,3 @@
+Peça criada para o perfil de design gráfico Café Marqueteiro, com o objetivo de atrair pequenos negócios para a construção de portfólio por meio de serviços de marketing gratuitos, com vagas limitadas.
+O layout combina uma fotografia de doces e café, que traz o clima de negócio local, com uma paleta em tons de marrom e uma hierarquia tipográfica clara, título em caixa alta com contraste entre letra preenchida e vazada, destaques em blocos de cor e um botão de chamada para ação que direciona o público para o texto completo.
+O projeto trabalhou comunicação persuasiva, hierarquia visual e identidade de marca em formato de feed.

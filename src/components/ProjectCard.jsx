@@ -1,4 +1,4 @@
-import cafeImg from '../assets/cafemarqueteiro/cafemarqueteiro.jpeg'
+import cafeImg from '../myprojects/cafemarqueteiro/logo/cafemarqueteiro.webp'
 
 // ponytail: troque o valor de IMG_MAP[slug] pela imagem real de cada projeto quando disponível
 const IMG_MAP = {

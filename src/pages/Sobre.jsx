@@ -70,15 +70,6 @@ export default function Sobre({ onNav }) {
             </div>
           </div>
 
-          <div style={{ marginTop: '4rem', paddingTop: '3rem', borderTop: '1px solid var(--linha)' }}>
-            <div className="eyebrow">Próximo passo?</div>
-            <h2 style={{ maxWidth: '20ch', marginBlock: '1rem 2rem' }}>
-              Aberta a conexões,<br />parcerias e bons projetos.
-            </h2>
-            <button className="btn btn-dark" onClick={() => onNav('contato')}>
-              Vamos conversar ↗
-            </button>
-          </div>
         </div>
       </section>
 

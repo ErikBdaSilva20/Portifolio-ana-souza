@@ -31,7 +31,7 @@ export default function Projetos({ onNav }) {
             </div>
           </div>
 
-          <div className="projects-grid cols-3">
+          <div className="projects-grid cols-2">
             {visible.map(c => (
               <a
                 key={c.slug}
