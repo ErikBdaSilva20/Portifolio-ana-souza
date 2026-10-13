@@ -65,7 +65,7 @@ export default function Home({ onNav }) {
             {/* Arte / foto — direita */}
             <div className="hero-art">
               <div className="hero-collage">
-                <div className="hero-scribble">ideias com intenção</div>
+                <div className="hero-scribble">ideias com propósito</div>
                 <div className="hero-photo-wrap">
                   <div className="hero-photo-frame">
                     <img src={anaPhoto} alt="Ana Julia Martinez" className="hero-photo" />
