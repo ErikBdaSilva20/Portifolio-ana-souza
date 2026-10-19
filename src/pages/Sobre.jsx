@@ -51,7 +51,8 @@ export default function Sobre({ onNav }) {
                 conecta e apoia mulheres da área de comunicação.
               </p>
               <p>
-                Atuei no atendimento da área de comunicação para marcas do grupo Nestlé — entre
+                De 20/07/2026 a 16/10/2026, atuei no atendimento da área de comunicação para
+                marcas do grupo Nestlé — entre
                 elas <strong>Garoto</strong>, <strong>KitKat</strong> e Nestlé Chocolates —
                 principalmente na linha de frente dos feedbacks negativos e reclamações, além da
                 sugestão de produtos. Cada resposta precisava resolver o problema do consumidor e
