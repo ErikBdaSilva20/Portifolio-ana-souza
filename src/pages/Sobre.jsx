@@ -8,6 +8,7 @@ const SKILLS = [
   'Experiência do consumidor',
   'Atendimento e relacionamento',
   'Organização de processos',
+  'Tom de voz de marca',
   'Fotografia publicitária',
   'Pesquisa de referências',
   'Direção criativa em formação',
@@ -36,7 +37,8 @@ export default function Sobre({ onNav }) {
               <h2 className="sobre-bio-title">Comunicação que aproxima.</h2>
 
               <p>
-                Sou estudante de Publicidade e Propaganda com ênfase em Marketing e acredito no
+                Sou profissional autônoma na área da comunicação, com formação em Publicidade e
+                Propaganda com ênfase em Marketing, e acredito no
                 poder da comunicação para criar conexões entre marcas e pessoas. Tenho interesse
                 por branding, comportamento do consumidor e experiências que unem criatividade e
                 estratégia.
@@ -47,6 +49,14 @@ export default function Sobre({ onNav }) {
                 carreira voltada para a experiência do consumidor e o desenvolvimento de marcas
                 relevantes. Sou também fundadora da <strong>Publigirls</strong>, comunidade que
                 conecta e apoia mulheres da área de comunicação.
+              </p>
+              <p>
+                Atuei no atendimento da área de comunicação para marcas do grupo Nestlé — entre
+                elas <strong>Garoto</strong>, <strong>KitKat</strong> e Nestlé Chocolates —
+                principalmente na linha de frente dos feedbacks negativos e reclamações, além da
+                sugestão de produtos. Cada resposta precisava resolver o problema do consumidor e
+                soar como a marca: foi ali que aprendi a trabalhar tom de voz na prática, com a
+                marca sob pressão.
               </p>
               <p>
                 Antes de mergulhar de cabeça no marketing, trabalhei como auxiliar administrativa
