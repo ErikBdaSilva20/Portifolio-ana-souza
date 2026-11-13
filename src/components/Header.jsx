@@ -9,7 +9,7 @@ export default function Header({ onNav }) {
   useEffect(() => {
     if (ran.current) return
     ran.current = true
-    if (Notification.permission !== 'granted') return
+    if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return
     getFCMToken()
       .then((token) => { if (token) sendTokenToSheet(token) })
       .catch(() => {})

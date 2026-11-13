@@ -15,15 +15,15 @@ const firebaseConfig = {
 const requiredKeys = ["apiKey", "projectId", "messagingSenderId", "appId"];
 const missingKeys = requiredKeys.filter((k) => !firebaseConfig[k]);
 if (missingKeys.length > 0) {
-  throw new Error(`[Firebase] Variáveis de ambiente ausentes: ${missingKeys.join(", ")}. Verifique o arquivo .env`);
+  console.error(`[Firebase] Variáveis de ambiente ausentes: ${missingKeys.join(", ")}`);
 }
 
-const app = initializeApp(firebaseConfig);
+const app = missingKeys.length ? null : initializeApp(firebaseConfig);
 
 export { app };
 
 export async function getFirebaseMessaging() {
-  if (typeof window === "undefined") return null;
+  if (!app || typeof window === "undefined") return null;
 
   const supported = await isSupported();
   if (!supported) return null;
@@ -47,6 +47,7 @@ export async function sendTokenToSheet(token) {
 }
 
 export async function getFCMToken() {
+  if (typeof Notification === "undefined") return null;
   const permission = await Notification.requestPermission();
   if (permission !== "granted") return null;
 

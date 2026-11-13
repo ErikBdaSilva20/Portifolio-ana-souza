@@ -29,7 +29,7 @@ function formatHorario(val) {
 }
 
 function NotifBanner() {
-  const [perm, setPerm] = useState(() => Notification.permission)
+  const [perm, setPerm] = useState(() => (typeof Notification === 'undefined' ? 'denied' : Notification.permission))
   const [loading, setLoading] = useState(false)
 
   const ativar = useCallback(async () => {
@@ -40,10 +40,10 @@ function NotifBanner() {
         await sendTokenToSheet(token)
         setPerm('granted')
       } else {
-        setPerm(Notification.permission)
+        setPerm(typeof Notification === 'undefined' ? 'denied' : Notification.permission)
       }
     } catch {
-      setPerm(Notification.permission)
+      setPerm(typeof Notification === 'undefined' ? 'denied' : Notification.permission)
     } finally {
       setLoading(false)
     }
